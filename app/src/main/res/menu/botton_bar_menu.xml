@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/home24"
+        android:title="Inicio" />
+    <item
+        android:icon="@drawable/heart24"
+        android:title="Me gusta" />
+    <item
+        android:icon="@drawable/chat24"
+        android:title="Conversaciones" />
+</menu>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EcuChange</string>
+    <string name="error">Ingrese un correo válido</string>
 </resources>
