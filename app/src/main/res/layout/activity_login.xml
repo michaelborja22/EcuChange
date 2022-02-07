@@ -8,11 +8,11 @@
     tools:context=".Login">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="390dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="35dp">
+        android:padding="33dp">
 
         <ImageView
             android:id="@+id/imageView"
@@ -103,7 +103,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/txt_pol_pri"
+                android:id="@+id/texto_sec1"
                 style="@style/comunicados"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,13 +112,12 @@
 
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/botonCondicionesUso"
                 style="@style/botonesComunicados"
-                android:layout_width="167dp"
+                android:layout_width="191dp"
                 android:layout_height="29dp"
                 android:layout_margin="0dp"
-                android:text="Condiciones de uso"
-                />
+                android:text="Condiciones de uso" />
 
 
         </LinearLayout>
@@ -137,12 +136,11 @@
 
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/botonPoliticaPrivacidad"
                 style="@style/botonesComunicados"
                 android:layout_width="wrap_content"
                 android:layout_height="33dp"
-                android:text=" Política de Privacidad "
-                />
+                android:text=" Política de Privacidad " />
 
             <TextView
                 android:id="@+id/textView8"
@@ -161,7 +159,7 @@
             android:layout_height="59dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"
-            android:backgroundTint="#00D8F6"
+            android:backgroundTint="@color/celeste"
             android:text="Iniciar Sesión"
             android:textColor="#FFFFFF"
             android:textSize="20sp"

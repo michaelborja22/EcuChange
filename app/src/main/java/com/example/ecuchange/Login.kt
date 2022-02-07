@@ -31,8 +31,8 @@ class Login : AppCompatActivity() {
 
         }
 
-        binding.txtPolPri.setOnClickListener(){
-            Toast.makeText(this,"APLICACION PROPIEDAD DE MICHAEL BORJA Y ALEX TONATO. CONTACT US",Toast.LENGTH_LONG).show()
+        binding.botonPoliticaPrivacidad.setOnClickListener(){
+            Toast.makeText(this,"APLICACION PROPIEDAD DE MICHAEL BORJA Y ALEX TONATO. CONTACT US",Toast.LENGTH_SHORT).show()
         }
 
 
