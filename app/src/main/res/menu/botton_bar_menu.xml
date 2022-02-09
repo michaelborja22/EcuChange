@@ -6,9 +6,15 @@
         android:icon="@drawable/home24"
         android:title="Inicio" />
     <item
+        android:id="@+id/botonGusta"
         android:icon="@drawable/heart24"
         android:title="Me gusta" />
     <item
+        android:id="@+id/botonChat"
+        android:clickable="true"
         android:icon="@drawable/chat24"
-        android:title="Conversaciones" />
+        android:title="Conversaciones"
+        
+        />
+
 </menu>

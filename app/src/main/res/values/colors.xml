@@ -8,7 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="celesteApagado">#ADE7E7</color>
+    <color name="celesteOscuro">#0CBBDE</color>
     <color name="celeste">#00d8f6</color>
     <color name="colorPrimary">#01E2E8</color>
     <color name="plomoOscuro">#292D2D</color>
+    <color name="azul">#1C5FE2</color>
 </resources>
