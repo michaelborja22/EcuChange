@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcuChange">
         <activity
-            android:name=".PrincipalActivity"
+            android:name=".presentacion.PrincipalActivity"
             android:exported="false" />
 
         <activity
-            android:name=".Login"
+            android:name=".presentacion.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

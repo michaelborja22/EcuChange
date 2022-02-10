@@ -1,19 +1,16 @@
-package com.example.ecuchange
+package com.example.ecuchange.presentacion
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.inputmethod.InputMethod
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import com.example.ecuchange.R
 import com.example.ecuchange.databinding.ActivityLoginBinding
-import com.google.android.material.textfield.TextInputLayout
 
-class Login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityLoginBinding
 
