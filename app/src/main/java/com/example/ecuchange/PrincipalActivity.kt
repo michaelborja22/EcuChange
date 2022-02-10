@@ -15,7 +15,7 @@ class PrincipalActivity : AppCompatActivity() {
         binding = ActivityPrincipalBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-
+//
         binding.bottomNavigation.setOnClickListener(){
 
         }
