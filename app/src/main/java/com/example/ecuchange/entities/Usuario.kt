@@ -1,9 +1,15 @@
 package com.example.ecuchange.entities
 
-data class Usuario (val id: Int=2, val nombre: String) {
+import java.util.*
 
-var direccion : String =""
+data class Usuario (var id: String="", var nombre: String="", var password:String="") {
 
-    constructor(id: Int, nombre: String, apellido : String) : this (id,nombre)
+    var direccion: String = ""
 
+
+    constructor(nombre: String, password: String) : this (){
+        this.nombre=nombre
+        this.password=password
+        this.id=UUID.randomUUID().toString()
+    }
 }
