@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.ecuchange.R
 import com.example.ecuchange.databinding.ActivityLoginBinding
+import com.example.ecuchange.logica.UsuarioLogica
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,7 +22,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.botonLogin.setOnClickListener(){
-            if(binding.txtEmail.text.toString().trim()==""){
+            val access = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
+            if(access){
                 binding.layoutEmail.error = getString(R.string.error)
             }else{
                 binding.layoutEmail.error=""

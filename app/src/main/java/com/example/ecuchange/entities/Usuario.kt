@@ -2,7 +2,7 @@ package com.example.ecuchange.entities
 
 import java.util.*
 
-data class Usuario (var id: String="", var nombre: String="", var password:String="") {
+data class Usuario (var id: String="-1L", var nombre: String="", var password:String="") {
 
     var direccion: String = ""
 
