@@ -1,7 +1,10 @@
 package com.example.ecuchange.presentacion
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.example.ecuchange.R
 import com.example.ecuchange.databinding.ActivityPrincipalBinding
 import androidx.fragment.app.Fragment as Fragment
@@ -17,8 +20,8 @@ class PrincipalActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        createFragment(HomeFragment())
-
+        createFragment(ListarFragment())
+        lstFragments.add(R.id.botonInicio)
         //Hacer que las notificacionmes de la barra de navagacion sea visible
         binding.bottomNavigation.getOrCreateBadge(R.id.botonGusta).isVisible=true
         //Dar notificaciones a los icones de la barra de navegacion
@@ -33,7 +36,7 @@ class PrincipalActivity : AppCompatActivity() {
                     // An icon only badge will be displayed unless a number is set:
 
                     if(item.itemId!=ant){
-                        createFragment(HomeFragment())
+                        createFragment(ListarFragment())
                         lstFragments.add(R.id.botonInicio)
                     }
                     ant = R.id.botonInicio
@@ -62,13 +65,16 @@ class PrincipalActivity : AppCompatActivity() {
             }
         }
 
+        binding.activityPrincipal.setOnClickListener(){
+            hideSoftkeyboard(binding.activityPrincipal)
+        }
 
     }
+
 
     override fun onBackPressed() {
         super.onBackPressed()
         //Para pasar por la pantalla home al final
-        var final=0
         if(lstFragments.isNotEmpty()){
             lstFragments.removeLast()
             binding.bottomNavigation.menu.findItem(lstFragments.last()).setChecked(true)
@@ -78,13 +84,18 @@ class PrincipalActivity : AppCompatActivity() {
 
     fun createFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction().apply {
-            replace(binding.FrameLayout.id, fragment)
+            replace(binding.FrameLayoutPrincipal.id, fragment)
             addToBackStack(null)
-            commit()
-        }
+
+        }.commit()
 }
 
+    fun hideSoftkeyboard(vista: View){
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(vista.windowToken,0)
 
+
+    }
 
     }
 
