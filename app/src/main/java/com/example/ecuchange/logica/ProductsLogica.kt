@@ -5,11 +5,11 @@ import com.example.ecuchange.entities.Products
 
 class ProductsLogica {
 
-    fun getProductsList():List<Products>{
+    suspend fun getProductsList():List<Products>{
         return ProductoUserCase().getAllProducts()
     }
 
-    fun getOneProduct(): Products{
+    suspend fun getOneProduct(): Products{
         val r = (0..2).random()
         print("\nR:" + r+"\n")
         return ProductoUserCase().getAllProducts()[r]

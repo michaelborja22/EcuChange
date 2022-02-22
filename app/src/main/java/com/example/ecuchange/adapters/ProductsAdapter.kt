@@ -28,14 +28,14 @@ class ProductsAdapter(val productsItemsList: List<Products>):RecyclerView.Adapte
 
 class ProductsViewHolder(productsView: View) : RecyclerView.ViewHolder(productsView) {
 
-    val binding = ItemProductsListBinding.bind(productsView)
+    private val binding: ItemProductsListBinding = ItemProductsListBinding.bind(productsView)
 
     fun render(item: Products){
-        print("\n\nid: "+item.id+" Nombre: "+item.nombre+"      "+item.img)
-        binding.txtTitulo.text=item.nombre
+        print("\n\nid: "+item.id+" Nombre: "+item.titulo+"      "+item.imagen)
+        binding.txtTitulo.text=item.titulo
         binding.txtDescripcion.text=item.descripcion
 
-       Picasso.get().load(item.img).into(binding.imagenProducto)
+       Picasso.get().load(item.imagen).into(binding.imagenProducto)
 
     }
 

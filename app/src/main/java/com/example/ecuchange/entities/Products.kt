@@ -1,4 +1,4 @@
 package com.example.ecuchange.entities
 
-data class Products(val id: Int, val nombre: String, val descripcion: String, val img:String) {
+data class Products(val id: String, val titulo: String, val descripcion: String, val imagen:String) {
 }

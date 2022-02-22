@@ -22,7 +22,7 @@ private lateinit var binding: FragmentListarBinding
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-binding= FragmentListarBinding.inflate(inflater,container,false)
+        binding= FragmentListarBinding.inflate(inflater,container,false)
 
         binding.listRecyclerView.adapter = ProductsAdapter(ProductsLogica().getProductsList())
         binding.listRecyclerView.layoutManager = LinearLayoutManager(binding.listRecyclerView.context)
