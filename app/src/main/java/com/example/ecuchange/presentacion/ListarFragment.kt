@@ -28,18 +28,15 @@ private lateinit var binding: FragmentListarBinding
     ): View? {
         binding= FragmentListarBinding.inflate(inflater,container,false)
 
- //       binding.listRecyclerView.adapter = ProductsAdapter(ProductsLogica().getProductsList())
-//        binding.listRecyclerView.layoutManager = LinearLayoutManager(binding.listRecyclerView.context)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadNews()
+        loadArticulos()
     }
 
-    fun loadNews() {
+    fun loadArticulos() {
         binding.listRecyclerView.clearAnimation()
         lifecycleScope.launch(Dispatchers.Main)
         {
