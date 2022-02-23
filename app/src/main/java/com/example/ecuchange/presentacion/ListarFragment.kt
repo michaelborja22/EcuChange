@@ -38,6 +38,8 @@ private lateinit var binding: FragmentListarBinding
 
     fun loadArticulos() {
         binding.listRecyclerView.clearAnimation()
+        binding.progressBar.visibility = View.VISIBLE
+
         lifecycleScope.launch(Dispatchers.Main)
         {
             val items = withContext(Dispatchers.IO) {
@@ -45,6 +47,7 @@ private lateinit var binding: FragmentListarBinding
             }
             binding.listRecyclerView.layoutManager = LinearLayoutManager(binding.listRecyclerView.context)
             binding.listRecyclerView.adapter = ProductsAdapter(items)
+            binding.progressBar.visibility = View.GONE
         }
     }
 
