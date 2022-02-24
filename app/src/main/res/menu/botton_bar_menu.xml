@@ -13,8 +13,8 @@
         android:id="@+id/botonChat"
         android:clickable="true"
         android:icon="@drawable/chat24"
-        android:title="Conversaciones"
-        
+        android:title="Chat"
+
         />
 
 </menu>

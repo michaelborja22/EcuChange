@@ -60,5 +60,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="iconoMeGusta">
+        <item name="android:textSize">0sp</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:gravity">left</item>
+    </style>
+
 
 </resources>

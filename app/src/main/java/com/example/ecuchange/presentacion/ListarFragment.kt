@@ -71,11 +71,12 @@ private lateinit var binding: FragmentListarBinding
     }
 
     fun clear() {
-        binding.listRecyclerView.adapter = ProductsAdapter(emptyList())
+        binding.listRecyclerView.adapter = ProductsAdapter(emptyList()){getProductsItem(it)}
     }
 
     private fun getProductsItem(articlesEntity: ArticlesEntity) {
         var intent = Intent(binding.listRecyclerView.context, ItemActivity::class.java)
+        intent.putExtra("producto",articlesEntity.toString())
         startActivity(intent)
     }
 
