@@ -97,6 +97,12 @@ class PrincipalActivity : AppCompatActivity() {
 
     }
 
+
+
+    fun suma(x: Int, y:Int, su:(Int,Int)->Int){
+        su(x,y)
+    }
+
     }
 
 

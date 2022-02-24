@@ -10,7 +10,8 @@ import com.example.ecuchange.databinding.ItemProductsListBinding
 import com.example.ecuchange.entities.Products
 import com.squareup.picasso.Picasso
 
-class ProductsAdapter(val productsItemsList: List<ArticlesEntity>):RecyclerView.Adapter<ProductsViewHolder>() {
+class ProductsAdapter(val productsItemsList: List<ArticlesEntity>,val onClickItemSelected: (ArticlesEntity) -> Unit):
+    RecyclerView.Adapter<ProductsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
 
@@ -23,7 +24,7 @@ class ProductsAdapter(val productsItemsList: List<ArticlesEntity>):RecyclerView.
     //Asigna cada uno de los elementos al viewholder
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         val item= productsItemsList[position]
-        holder.render(item)
+        holder.render(item,onClickItemSelected)
     }
 
     override fun getItemCount(): Int = productsItemsList.size
@@ -34,12 +35,17 @@ class ProductsViewHolder(productsView: View) : RecyclerView.ViewHolder(productsV
 
     private val binding: ItemProductsListBinding = ItemProductsListBinding.bind(productsView)
 
-    fun render(item: ArticlesEntity){
+    fun render(item: ArticlesEntity,onClickItemSelected: (ArticlesEntity) -> Unit){
         print("\n\nid: "+item.id+" Nombre: "+item.titulo+"      "+item.imagen)
         binding.txtTitulo.text=item.titulo
-        binding.txtDescripcion.text=item.descripcion
+
 
        Picasso.get().load(item.imagen).into(binding.imagenProducto)
+
+        itemView.setOnClickListener {
+            onClickItemSelected(item)
+        }
+
 
     }
 

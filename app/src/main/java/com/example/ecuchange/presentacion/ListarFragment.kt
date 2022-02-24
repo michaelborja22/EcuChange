@@ -1,5 +1,6 @@
 package com.example.ecuchange.presentacion
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,16 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.ecuchange.R
+import com.example.adoptame.database.entidades.ArticlesEntity
 import com.example.ecuchange.adapters.ProductsAdapter
-import com.example.ecuchange.databinding.ActivityLoginBinding
 import com.example.ecuchange.databinding.FragmentListarBinding
-import com.example.ecuchange.entities.Products
 import com.example.ecuchange.logica.ProductsLogica
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class ListarFragment : Fragment() {
 
@@ -44,8 +44,13 @@ private lateinit var binding: FragmentListarBinding
                 ProductsLogica().getProductsList()
             }
             binding.listRecyclerView.layoutManager = LinearLayoutManager(binding.listRecyclerView.context)
-            binding.listRecyclerView.adapter = ProductsAdapter(items)
+            binding.listRecyclerView.adapter = ProductsAdapter(items){getProductsItem(it)}
         }
+    }
+
+    private fun getProductsItem(articlesEntity: ArticlesEntity) {
+        var intent = Intent(binding.listRecyclerView.context, ItemActivity::class.java)
+        startActivity(intent)
     }
 
 

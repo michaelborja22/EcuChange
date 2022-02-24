@@ -3,17 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="420dp">
+    android:layout_height="250dp"
+    android:layout_marginBottom="10dp"
+    android:paddingRight="10dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_margin="8dp"
+        android:id="@+id/cardView2"
+        android:layout_width="188dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
         android:elevation="6dp"
-        app:cardCornerRadius="12dp"
+        app:cardCornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.027">
 
@@ -23,42 +26,107 @@
 
             <TextView
                 android:id="@+id/txt_titulo"
-                android:layout_width="match_parent"
+                style="@style/tituloProducto"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.13"
+                app:layout_constraintTop_toBottomOf="@+id/precio"
                 tools:text="Titulo">
 
             </TextView>
 
             <TextView
-                android:id="@+id/txt_descripcion"
+                android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descripcion"
+                android:layout_marginStart="16dp"
+
+                android:layout_marginTop="8dp"
+                android:text="$"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_titulo"
-                app:layout_constraintVertical_bias="0.376" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto" />
+
+            <TextView
+                android:id="@+id/precio"
+                style="@style/preciosProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="999"
+                app:layout_constraintStart_toEndOf="@+id/textView16"
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto" />
 
             <ImageView
                 android:id="@+id/imagen_producto"
-                android:layout_width="158dp"
-                android:layout_height="177dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="162dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.122"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_titulo"
-                app:layout_constraintVertical_bias="0.527"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/candado24" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="188dp"
+        android:layout_height="240dp"
+        android:layout_margin="5dp"
+        android:elevation="6dp"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imagen_producto2"
+                android:layout_width="188dp"
+                android:layout_height="162dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/candado24" />
+
+            <TextView
+                android:id="@+id/txt_titulo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto2"
+                tools:text="Titulo">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_descripcion2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="12dp"
+                android:text="Descripcion"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_titulo2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
