@@ -6,8 +6,8 @@ import com.example.ecuchange.entities.Products
 
 class ProductsLogica {
 
-    suspend fun getProductsList():List<ArticlesEntity>{
-        return ProductoUserCase().getAllProducts()
+    suspend fun getProductsList(category: String):List<ArticlesEntity>{
+        return ProductoUserCase().getAllProducts(category)
     }
 
 //    suspend fun getOneProduct(): Products{
