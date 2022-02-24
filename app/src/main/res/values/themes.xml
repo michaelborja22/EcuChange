@@ -41,6 +41,13 @@
         <item name="android:gravity">left</item>
         <item name="android:textAllCaps">false</item>
     </style>
+    <style name="TabLayout" parent="">
+        <item name="tabBackground">@android:color/transparent</item>
+        <item name="colorSurface">@android:color/transparent</item>
+        <item name="colorOnSurface">@color/TabCategorias</item>
+        <item name="colorPrimary">@color/SelectTab</item>
+        <item name="tabRippleColor">@color/teal_200</item>
+    </style>
 
     <style name="tituloProducto">
         <item name="android:textColor">@color/black</item>
