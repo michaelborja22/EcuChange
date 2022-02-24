@@ -28,12 +28,17 @@ class ProductoUserCase {
 //
 //    )
 
-    suspend fun getAllProducts(): List<ArticlesEntity> {
-
+    suspend fun getAllProducts( category: String ): List<ArticlesEntity> {
+        val url: String
+        if (category.isNotEmpty()) {
+            url = "filtroCategoria/$category"
+        } else {
+            url = "articulos"
+        }
         var resp: List<ArticlesEntity> = ArrayList<ArticlesEntity>()
 
         val service = RetrofitAPI.getArticulosApi().create(ArticulosService::class.java)
-        val call = service.getAllArticulosbyCategoria("articulos")
+        val call = service.getAllArticulosbyCategoria(url)
 
         resp = if (call.isSuccessful) {
             return call.body()!!.articles.map {
