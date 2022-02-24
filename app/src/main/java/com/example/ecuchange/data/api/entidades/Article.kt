@@ -15,4 +15,4 @@ data class Article(
     val titulo: String
 )
 
-fun Article.toArticlesEntity() = ArticlesEntity(_id,titulo,descripcion,imagen)
+fun Article.toArticlesEntity() = ArticlesEntity(_id,titulo,descripcion,imagen, precio)

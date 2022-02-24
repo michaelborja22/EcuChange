@@ -38,6 +38,7 @@ class ProductsViewHolder(productsView: View) : RecyclerView.ViewHolder(productsV
         print("\n\nid: "+item.id+" Nombre: "+item.titulo+"      "+item.imagen)
         binding.txtTitulo.text=item.titulo
         binding.txtDescripcion.text=item.descripcion
+        binding.txtPrecio.text=item.precio.toString()
 
        Picasso.get().load(item.imagen).into(binding.imagenProducto)
 
