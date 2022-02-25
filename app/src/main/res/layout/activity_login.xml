@@ -25,7 +25,7 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="106dp"
             android:gravity="center_vertical"
             android:text="!Te damos la bienvenida!"
             android:textColor="#000000"
@@ -69,7 +69,7 @@
             style="@style/etiquetas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25sp"
+            android:layout_marginTop="5sp"
             android:text="Contraseña" />
 
 
@@ -158,15 +158,29 @@
 
             style="@style/Widget.Material3.Button.TonalButton.Icon"
             android:layout_width="wrap_content"
-            android:layout_height="59dp"
+            android:layout_height="45dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/celeste"
             android:text="Iniciar Sesión"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/botonRegistro"
 
+            style="@style/Widget.Material3.Button.TonalButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/celeste"
+            android:text="Registrarme"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+0
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"

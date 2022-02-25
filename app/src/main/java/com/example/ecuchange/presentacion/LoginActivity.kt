@@ -34,6 +34,11 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        binding.botonRegistro.setOnClickListener() {
+            var intent = Intent(this, RegisterActivity::class.java )
+            startActivity(intent)
+        }
+
         binding.botonPoliticaPrivacidad.setOnClickListener(){
             Toast.makeText(this,"APLICACION PROPIEDAD DE MICHAEL BORJA Y ALEX TONATO. CONTACT US",Toast.LENGTH_SHORT).show()
         }

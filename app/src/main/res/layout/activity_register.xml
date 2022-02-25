@@ -1,110 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registroUser"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    android:orientation="vertical"
+    tools:context=".presentacion.RegisterActivity">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="33dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="33dp">
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="115dp" />
+        <TextView
+            android:id="@+id/textRegistro"
+            style="@style/etiquetas"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5sp"
+            android:text="Registro"
+            android:textSize="30sp" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="153dp" />
+        <TextView
+            android:id="@+id/textNombre"
+            style="@style/etiquetas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35sp"
+            android:text="Nombre" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="71dp" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="230dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNombre"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:startIconDrawable="@drawable/email_24">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="263dp" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="320dp" />
+            <EditText
+                android:id="@+id/txtNombre"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="354dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="407dp" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="440dp" />
+        <TextView
+            android:id="@+id/textApellido"
+            style="@style/etiquetas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apellido" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="502dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutApellido"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:startIconDrawable="@drawable/email_24">
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="535dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <EditText
+                android:id="@+id/txtApellido"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/textCorreo"
+            style="@style/etiquetas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:startIconDrawable="@drawable/email_24">
+
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textDireccion"
+            style="@style/etiquetas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Direccion" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutDireccion"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:startIconDrawable="@drawable/email_24">
+
+
+            <EditText
+                android:id="@+id/txtDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textUsuario"
+            style="@style/etiquetas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Usuario" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutUsuario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:startIconDrawable="@drawable/email_24">
+
+
+            <EditText
+                android:id="@+id/txtUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textPasswordR"
+            style="@style/etiquetas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contraseña" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/candado24">
+
+            <EditText
+                android:id="@+id/txtPasswordR"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:shadowColor="#000000"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/botonRegistrar"
+
+            style="@style/Widget.Material3.Button.TonalButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="59dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/celeste"
+            android:text="Registrar"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/botonRegresar"
+
+            style="@style/Widget.Material3.Button.TonalButton.Icon"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="140dp"
+            android:backgroundTint="@color/celeste"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:icon="@android:drawable/ic_menu_revert" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

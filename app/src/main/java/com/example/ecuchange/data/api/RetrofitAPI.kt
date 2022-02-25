@@ -10,4 +10,10 @@ object RetrofitAPI {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
+    fun postUsuariosApi(): Retrofit {
+        return Retrofit.Builder().baseUrl("https://ecu-change.herokuapp.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 }
