@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
 import com.example.ecuchange.data.api.RetrofitAPI
 import com.example.ecuchange.data.api.service.UsuarioService
@@ -18,6 +19,7 @@ import kotlinx.coroutines.launch
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +45,14 @@ class RegisterActivity : AppCompatActivity() {
                 postData(binding.txtNombre.text.toString(), binding.txtApellido.text.toString(), binding.txtEmail.text.toString(), binding.txtUsuario.text.toString(), binding.txtPasswordR.text.toString(), binding.txtDireccion.text.toString())
             }
 
+
         }
+        binding.txtNombre.setOnClickListener() {
+            binding.txtNombre.setText("")
+        }
+
+
+
     }
 
     suspend fun postData (nombre: String, apellido: String, correo: String, user: String, password: String, direccion: String) {
@@ -64,7 +73,6 @@ class RegisterActivity : AppCompatActivity() {
     fun hideSoftkeyboard(vista: View){
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(vista.windowToken,0)
-
 
     }
 }
