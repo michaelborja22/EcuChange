@@ -10,10 +10,14 @@ import android.widget.Toast
 import com.example.ecuchange.R
 import com.example.ecuchange.databinding.ActivityLoginBinding
 import com.example.ecuchange.logica.UsuarioLogica
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityLoginBinding
+    private var access: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -22,16 +26,17 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.botonLogin.setOnClickListener(){
-            val access = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
-            if(access){
-                binding.layoutEmail.error = getString(R.string.error)
-            }else{
-                binding.layoutEmail.error=""
-                var intent = Intent(this, PrincipalActivity::class.java)
-                startActivity(intent)
+            CoroutineScope(Dispatchers.Main).launch {
+                access = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
+                if(!access){
+                    binding.layoutEmail.error = getString(R.string.error)
+                }else{
+                    binding.layoutEmail.error=""
+                    var intent = Intent(applicationContext, PrincipalActivity::class.java)
+                    startActivity(intent)
+                }
+
             }
-
-
         }
 
         binding.botonRegistro.setOnClickListener() {
@@ -81,3 +86,4 @@ Antes
 
 
 }
+

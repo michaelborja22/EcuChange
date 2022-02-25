@@ -7,10 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import com.example.ecuchange.R
 import com.example.ecuchange.data.api.RetrofitAPI
-import com.example.ecuchange.data.api.service.ArticulosService
-import com.example.ecuchange.data.api.service.UserService
 import com.example.ecuchange.data.api.service.UsuarioService
 import com.example.ecuchange.databinding.ActivityRegisterBinding
 import com.example.ecuchange.entities.UsuarioModal
@@ -37,10 +34,11 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.botonRegistrar.setOnClickListener() {
-//            if (nombre.getText().toString().isEmpty() && apellido.getText().toString().isEmpty() && correo.getText().toString().isEmpty()) {
-//                Toast.makeText(this,"APLICACION PROPIEDAD DE MICHAEL BORJA Y ALEX TONATO. CONTACT US",
-//                    Toast.LENGTH_SHORT).show()
-//            }
+            if (binding.txtNombre.text.isEmpty() ||  binding.txtApellido.text.isEmpty() || binding.txtEmail.text.isEmpty() || binding.txtUsuario.text.isEmpty() || binding.txtPasswordR.text.isEmpty()) {
+                Toast.makeText(this,"Complete los campos",
+                    Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             CoroutineScope(Dispatchers.IO).launch {
                 postData(binding.txtNombre.text.toString(), binding.txtApellido.text.toString(), binding.txtEmail.text.toString(), binding.txtUsuario.text.toString(), binding.txtPasswordR.text.toString(), binding.txtDireccion.text.toString())
             }
@@ -53,7 +51,14 @@ class RegisterActivity : AppCompatActivity() {
         val modal = UsuarioModal(nombre,apellido,correo, user,password,direccion)
         val service = RetrofitAPI.postUsuariosApi().create(UsuarioService::class.java)
 
-        service.createEmployee(modal)
+        val response = service.createEmployee(modal)
+
+        if (response.isSuccessful) {
+            var intent = Intent(this, LoginActivity::class.java )
+            startActivity(intent)
+        } else {
+            Toast.makeText(this,"Retrofit Error ${response.code().toString()}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     fun hideSoftkeyboard(vista: View){

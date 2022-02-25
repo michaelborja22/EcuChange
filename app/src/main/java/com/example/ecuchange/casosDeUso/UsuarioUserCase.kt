@@ -1,5 +1,12 @@
 package com.example.ecuchange.casosDeUso
 
+import com.example.adoptame.database.entidades.ArticlesEntity
+import com.example.ecuchange.data.api.RetrofitAPI
+import com.example.ecuchange.data.api.entidades.toArticlesEntity
+import com.example.ecuchange.data.api.entidades.toUsuariosEntity
+import com.example.ecuchange.data.api.service.ArticulosService
+import com.example.ecuchange.data.api.service.UsuarioService
+import com.example.ecuchange.data.database.entidades.UsuarioEntity
 import com.example.ecuchange.entities.Usuario
 
 class UsuarioUserCase {
@@ -15,16 +22,46 @@ class UsuarioUserCase {
 
 
     //al final :Usuario significa que se va a retornar un objetoi de tipo usuario
-    fun getUser(nombre:String,password:String) :Usuario{
-        var us=Usuario()
+    suspend fun getUser(user:String,password:String) : Boolean{
+        // var us=Usuario()
 
-        usuariosDB.forEach(){
-            println(it)
-            if(it.nombre==nombre && it.password==password){
-                us=it
+        // var resp: List<UsuarioEntity> = ArrayList<UsuarioEntity>()
+        var us: UsuarioEntity = UsuarioEntity("0001","admin", "admin", "admin")
+        var respuesta: Boolean = false
+        val service = RetrofitAPI.getUsuariosApi().create(UsuarioService::class.java)
+        val call = service.getAllUsuarios("usuarios")
+        println(call.body()!!.users)
+        if (call.isSuccessful) {
+            call.body()!!.users.forEach() {
+                if (it.user == user && it.password == password) {
+                    us = it.toUsuariosEntity()
+                    respuesta = true
+                }
             }
-        }
-        return us
+            println("en el if")
+            println(us)
+
+            return respuesta
+        } else {
+            println("en el else")
+            println(us)
+            return respuesta }
+//        resp = if (call.isSuccessful) {
+//            return call.body()!!.users.forEach() {
+//                if (it.user == nombre && it.password == password) {
+//                    it.toUsuariosEntity()
+//                }
+//            }
+//        } else ()
+//        return resp
+//
+//        usuariosDB.forEach(){
+//            println(it)
+//            if(it.nombre==nombre && it.password==password){
+//                us=it
+//            }
+//        }
+//        return us
     }
 
     fun ingresarUsuario(){
