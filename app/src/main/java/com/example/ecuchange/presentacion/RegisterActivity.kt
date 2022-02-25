@@ -1,8 +1,11 @@
 package com.example.ecuchange.presentacion
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.ecuchange.R
 import com.example.ecuchange.data.api.RetrofitAPI
@@ -29,6 +32,9 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.registerPrincipal.setOnClickListener(){
+            hideSoftkeyboard(binding.registerPrincipal)
+        }
 
         binding.botonRegistrar.setOnClickListener() {
 //            if (nombre.getText().toString().isEmpty() && apellido.getText().toString().isEmpty() && correo.getText().toString().isEmpty()) {
@@ -48,5 +54,12 @@ class RegisterActivity : AppCompatActivity() {
         val service = RetrofitAPI.postUsuariosApi().create(UsuarioService::class.java)
 
         service.createEmployee(modal)
+    }
+
+    fun hideSoftkeyboard(vista: View){
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(vista.windowToken,0)
+
+
     }
 }

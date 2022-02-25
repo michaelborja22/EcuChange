@@ -28,7 +28,7 @@
             android:layout_height="106dp"
             android:gravity="center_vertical"
             android:text="!Te damos la bienvenida!"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -166,6 +166,7 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
+
         <Button
             android:id="@+id/botonRegistro"
 
@@ -174,8 +175,8 @@
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
-            android:backgroundTint="@color/celeste"
-            android:text="Registrarme"
+            android:backgroundTint="@color/rojizo"
+            android:text="Registrate"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
             android:textStyle="bold" />
