@@ -11,10 +11,7 @@
         android:layout_width="185dp"
         android:layout_height="235dp"
         android:layout_marginEnd="16dp"
-        android:elevation="6dp"
         app:cardCornerRadius="20dp"
-
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.83"
@@ -99,22 +96,20 @@
         android:id="@+id/cardView3"
         android:layout_width="185dp"
         android:layout_height="235dp"
-        android:layout_margin="0dp"
-        android:elevation="6dp"
 
-
-        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.01"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        app:cardCornerRadius="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bordes_cardview">
+            android:background="@drawable/bordes_cardview"
+            >
 
             <ImageView
                 android:id="@+id/imagen_producto2"

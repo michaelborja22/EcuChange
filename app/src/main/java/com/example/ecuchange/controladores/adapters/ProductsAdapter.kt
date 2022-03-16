@@ -53,10 +53,12 @@ class ProductsViewHolder(productsView: View) : RecyclerView.ViewHolder(productsV
         binding.precio2.text=item2.precio.toString()
        Picasso.get().load(item.imagen).into(binding.imagenProducto)
         Picasso.get().load(item2.imagen).into(binding.imagenProducto2)
-        itemView.setOnClickListener {
+        binding.cardView3.setOnClickListener {
+            onClickItemSelected(item2)
+        }
+        binding.cardView2.setOnClickListener {
             onClickItemSelected(item)
         }
-
 
     }
 
