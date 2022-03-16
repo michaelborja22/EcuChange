@@ -12,4 +12,9 @@ data class UsuarioEntity (
     val user: String?,
     val password: String?,
     val correo: String?,
-)
+    val nombre: String? = null ,
+    val apellido: String? = null ,
+    val direccion: String? = null ,
+) {
+
+}

@@ -1,6 +1,7 @@
 package com.example.ecuchange.data.api.service
 
 import com.example.ecuchange.data.api.entidades.ArticulosEntity
+import com.example.ecuchange.data.api.entidades.User
 import com.example.ecuchange.data.api.entidades.UsuariosEntity
 import com.example.ecuchange.entities.UsuarioModal
 import retrofit2.http.Body
@@ -18,4 +19,7 @@ interface UsuarioService {
 
     @GET
     suspend fun getAllUsuarios(@Url url:String): Response<UsuariosEntity>
+
+    @GET
+    suspend fun getOneUser(@Url url:String): Response<User>
 }

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcuChange">
         <activity
+            android:name=".presentacion.InformationUser"
+            android:exported="false" />
+        <activity
             android:name=".presentacion.RegisterActivity"
             android:exported="false" />
         <activity
