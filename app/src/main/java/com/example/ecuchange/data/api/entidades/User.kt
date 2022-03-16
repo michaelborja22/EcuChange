@@ -15,3 +15,5 @@ data class User(
 )
 
 fun User.toUsuariosEntity() = UsuarioEntity(_id, user, password, correo)
+
+fun User.toOneUserEntity() = UsuarioEntity(_id, user, password, correo, nombre, apellido, direccion)

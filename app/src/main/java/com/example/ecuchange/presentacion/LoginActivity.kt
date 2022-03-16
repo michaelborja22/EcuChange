@@ -8,8 +8,10 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.ecuchange.R
+import com.example.ecuchange.data.database.entidades.UsuarioEntity
 import com.example.ecuchange.databinding.ActivityLoginBinding
 import com.example.ecuchange.logica.UsuarioLogica
+import com.example.ecuchange.utils.EcuChange
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityLoginBinding
     private var access: Boolean = false
+    private lateinit var usuarioAcces: UsuarioEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -26,11 +29,17 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.botonLogin.setOnClickListener(){
+            val dbSh = this.getSharedPreferences("dataUser", Context.MODE_PRIVATE)
+            var editor = dbSh.edit()
             CoroutineScope(Dispatchers.Main).launch {
-                access = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
-                if(!access){
+                // access = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
+                usuarioAcces = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
+                if(usuarioAcces.user === "admin"){
                     binding.layoutEmail.error = getString(R.string.error)
                 }else{
+                    println(usuarioAcces.id)
+                    editor.putString("id_User", usuarioAcces.id)
+                    editor.commit()
                     binding.layoutEmail.error=""
                     var intent = Intent(applicationContext, PrincipalActivity::class.java)
                     startActivity(intent)
