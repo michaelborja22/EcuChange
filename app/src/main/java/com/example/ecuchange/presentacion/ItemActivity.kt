@@ -42,7 +42,7 @@ class ItemActivity : AppCompatActivity() {
     private fun loadNews(articlesEntity: ArticlesEntity) {
         binding.tituloItem.text = articlesEntity.titulo
         binding.descripcionItem.text = articlesEntity.descripcion
-        Picasso.get().load(articlesEntity.imagen).into(binding.imageView4)
+        Picasso.get().load(articlesEntity.imagen).into(binding.imagenProducto)
 
         /*lifecycleScope.launch(Dispatchers.Main) {
             fav = withContext(Dispatchers.IO) { NewsBL().checkIsSaved(newsEntity.id) }
