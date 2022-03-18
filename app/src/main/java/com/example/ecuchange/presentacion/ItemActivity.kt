@@ -68,13 +68,13 @@ class ItemActivity : AppCompatActivity() {
                     binding.botonLikeItem.setImageResource(R.drawable.corazon32)
 
                     Picasso.get().load(articuloItem.imagen).into(binding.imagenProducto)
-                    println("ARTICULO AÑADIDO: " +articulo)
+                   // println("ARTICULO AÑADIDO: " +articulo)
                     fav =ProductsLogica().checkIsSaved(articuloItem.id)
                 }
             } else {
                 lifecycleScope.launch {
                     ProductsLogica().deleteNewFavNews(articulo)
-                    println("ARTICULO ElIMINADO: " +articulo)
+                    //println("ARTICULO ElIMINADO: " +articulo)
                     binding.botonLikeItem.setImageResource(R.drawable.corazon_adoptame)
                     fav =ProductsLogica().checkIsSaved(articuloItem.id)
                 }
