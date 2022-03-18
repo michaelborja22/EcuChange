@@ -30,7 +30,6 @@ import kotlinx.coroutines.launch
 class InformationUser : AppCompatActivity() {
     private lateinit var binding: ActivityInformationUserBinding
     private lateinit var oneUser: UsuarioEntity
-    private lateinit var imgUsuario: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

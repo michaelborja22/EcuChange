@@ -10,6 +10,14 @@ class ProductsLogica {
         return ProductoUserCase().getAllProducts(category)
     }
 
+    /*
+    suspend fun checkIsSaved(id: String): Boolean {
+        val n = ProductoUserCase().getOneNews(id)
+        return n != null
+    }
+    */
+
+
 //    suspend fun getOneProduct(): Products{
 //        val r = (0..2).random()
 //        print("\nR:" + r+"\n")

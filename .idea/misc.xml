@@ -11,6 +11,7 @@
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/drawable/bordes_camara.xml" value="0.2455" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/drawable/bordes_cardview.xml" value="0.2595" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/drawable/bordes_register.xml" value="0.2475" />
+        <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/drawable/corazon_adoptame.xml" value="0.1235" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/drawable/corner_radius.xml" value="0.3828125" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/drawable/corner_radius_boton_navigation.xml" value="0.197" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/drawable/cornerradius.xml" value="0.3828125" />
@@ -18,7 +19,7 @@
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/drawable/layout_bg.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/layout/activity_information_user.xml" value="0.2" />
-        <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/layout/activity_item.xml" value="0.16" />
+        <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/layout/activity_item.xml" value="0.2" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Usuario/Documents/Android/EcuChange/app/src/main/res/layout/activity_principal.xml" value="0.264" />

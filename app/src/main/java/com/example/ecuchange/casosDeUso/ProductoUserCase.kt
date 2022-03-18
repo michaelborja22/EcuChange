@@ -4,6 +4,7 @@ import com.example.ecuchange.data.api.RetrofitAPI
 import com.example.ecuchange.data.api.entidades.toArticlesEntity
 import com.example.ecuchange.data.api.service.ArticulosService
 import com.example.ecuchange.entities.Products
+import com.example.ecuchange.utils.EcuChange
 import retrofit2.create
 
 class ProductoUserCase {
@@ -48,5 +49,11 @@ class ProductoUserCase {
         return resp
     }
 
+    /*
+    suspend fun getOneNews(id: String): ArticlesEntity {
+        val service = RetrofitAPI.getArticulosApi().create(ArticulosService::class.java)
+        val call = service.get
 
+    }
+*/
 }

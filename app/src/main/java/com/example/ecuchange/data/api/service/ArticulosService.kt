@@ -9,4 +9,7 @@ interface ArticulosService {
 
     @GET
     suspend fun getAllArticulosbyCategoria(@Url url:String): Response<ArticulosEntity>
+
+    @GET
+    suspend fun getOneArticulo(@Url url:String): Response<ArticulosEntity>
 }
