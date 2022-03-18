@@ -15,9 +15,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.example.adoptame.database.entidades.ArticlesEntity
 import com.example.ecuchange.R
+import com.example.ecuchange.data.api.RetrofitAPI
+import com.example.ecuchange.data.api.service.UsuarioService
 import com.example.ecuchange.data.database.entidades.UsuarioEntity
 import com.example.ecuchange.databinding.ActivityInformationUserBinding
 import com.example.ecuchange.databinding.ActivityLoginBinding
+import com.example.ecuchange.entities.UsuarioModal
 import com.example.ecuchange.logica.UsuarioLogica
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -57,6 +60,39 @@ class InformationUser : AppCompatActivity() {
             requestPermission()
         }
 
+        binding.botonGuardarUsuario.setOnClickListener() {
+            println("Entre al metodo de guardar")
+            CoroutineScope(Dispatchers.IO).launch {
+                updateData(binding.txtNombre.text.toString(), binding.txtApellido.text.toString(), binding.txtEmail.text.toString(), binding.txtUsuario.text.toString(), binding.txtDireccion.text.toString())
+            }
+        }
+
+        binding.botonRegresar.setOnClickListener() {
+            var intent = Intent(this, PrincipalActivity::class.java )
+            startActivity(intent)
+        }
+
+        binding.botonRecuperarImagen.setOnClickListener() {
+            val imagen = binding.imagenUsuario
+            println(imagen)
+        }
+    }
+
+    suspend fun updateData (nombre: String, apellido: String, correo: String, user: String, direccion: String) {
+
+        val modal = UsuarioModal(nombre,apellido,correo, user,direccion)
+        val service = RetrofitAPI.postUsuariosApi().create(UsuarioService::class.java)
+        val dbSh = this.getSharedPreferences("dataUser", Context.MODE_PRIVATE)
+        var id = dbSh.getString("id_User", "")
+        println(modal)
+        val response = service.editarUsuario(id.toString(), modal)
+
+        if (response.isSuccessful) {
+            var intent = Intent(this, PrincipalActivity::class.java )
+            startActivity(intent)
+        } else {
+            Toast.makeText(this,"Retrofit Error ${response.code().toString()}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun requestPermission() {
@@ -108,6 +144,7 @@ class InformationUser : AppCompatActivity() {
     ) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data?.data
+            println(data)
             binding.imagenUsuario.setImageURI(data)
         }
     }

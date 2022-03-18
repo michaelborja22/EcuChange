@@ -4,12 +4,9 @@ import com.example.ecuchange.data.api.entidades.ArticulosEntity
 import com.example.ecuchange.data.api.entidades.User
 import com.example.ecuchange.data.api.entidades.UsuariosEntity
 import com.example.ecuchange.entities.UsuarioModal
-import retrofit2.http.Body
-import retrofit2.http.POST
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Url
+import retrofit2.http.*
 
 interface UsuarioService {
 
@@ -22,4 +19,7 @@ interface UsuarioService {
 
     @GET
     suspend fun getOneUser(@Url url:String): Response<User>
+
+    @PUT("/api/usuario/{id}")
+    suspend fun editarUsuario(@Path("id")  id: String, @Body requestBody: UsuarioModal): Response<UsuarioModal>
 }

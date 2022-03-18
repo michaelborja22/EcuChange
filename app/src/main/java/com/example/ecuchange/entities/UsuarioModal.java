@@ -18,6 +18,14 @@ public class UsuarioModal {
         this.direccion = direccion;
     }
 
+    public UsuarioModal(String nombre, String apellido, String correo, String user, String direccion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.user = user;
+        this.direccion = direccion;
+    }
+
     public String getNombre() {
         return nombre;
     }
