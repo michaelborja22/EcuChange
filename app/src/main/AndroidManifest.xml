@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".utils.EcuChange"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,10 +26,10 @@
             android:name=".presentacion.ItemActivity"
             android:exported="false" />
         <activity
-            android:name=".presentacion.PrincipalActivity"
+            android:name=".presentacion.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".presentacion.LoginActivity"
+            android:name=".presentacion.PrincipalActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

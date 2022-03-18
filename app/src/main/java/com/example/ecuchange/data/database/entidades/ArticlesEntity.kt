@@ -1,14 +1,15 @@
 package com.example.adoptame.database.entidades
 
+import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.serialization.Serializable
 
-@Entity(tableName = "news")
+@Entity(tableName = "articulos")
 @Serializable
 data class ArticlesEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: String?,
+    @PrimaryKey
+    val id: String,
     val titulo: String?,
     val descripcion: String?,
     val imagen: String?,

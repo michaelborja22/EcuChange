@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.example.ecuchange.R
+import com.example.ecuchange.data.database.ArticulosDataBase
 import com.example.ecuchange.databinding.ActivityPrincipalBinding
 import androidx.fragment.app.Fragment as Fragment
 
@@ -13,6 +14,7 @@ class PrincipalActivity : AppCompatActivity() {
 
     private lateinit var binding: com.example.ecuchange.databinding.ActivityPrincipalBinding
     private var lstFragments = mutableListOf<Int>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

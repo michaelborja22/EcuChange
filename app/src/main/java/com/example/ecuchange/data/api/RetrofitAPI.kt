@@ -22,4 +22,11 @@ object RetrofitAPI {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
+    fun getOneArticulosApi(): Retrofit {
+        return Retrofit.Builder().baseUrl("https://ecu-change.herokuapp.com/api/articulo/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
 }

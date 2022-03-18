@@ -1,5 +1,6 @@
 package com.example.ecuchange.data.api.service
 
+import com.example.ecuchange.data.api.entidades.Article
 import com.example.ecuchange.data.api.entidades.ArticulosEntity
 import retrofit2.Response
 import retrofit2.http.GET
@@ -11,5 +12,5 @@ interface ArticulosService {
     suspend fun getAllArticulosbyCategoria(@Url url:String): Response<ArticulosEntity>
 
     @GET
-    suspend fun getOneArticulo(@Url url:String): Response<ArticulosEntity>
+    suspend fun getOneArticulo(@Url url:String): Response<Article>
 }

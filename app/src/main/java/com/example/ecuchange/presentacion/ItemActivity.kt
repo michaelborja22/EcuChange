@@ -22,7 +22,7 @@ class ItemActivity : AppCompatActivity() {
         private lateinit var binding: ActivityItemBinding
 
         private var fav: Boolean = false
-        var newsObtain: ArticlesEntity? = null
+        private lateinit var articuloItem: ArticlesEntity
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -31,32 +31,56 @@ class ItemActivity : AppCompatActivity() {
 
             var n: ArticlesEntity? = null
             intent.extras?.let{
-               newsObtain = Json.decodeFromString<ArticlesEntity>(it.getString("producto").toString())
-                println(newsObtain)
+
+               articuloItem = Json.decodeFromString<ArticlesEntity>(it.getString("producto").toString())
+                println("ARTICULO ESCOGIDO: "+articuloItem)
             }
 
-            if (newsObtain != null) {
-                loadNews(newsObtain!!)
+            if (articuloItem != null) {
+                loadNews(articuloItem!!)
             }
 
 
-
+            binding.botonLikeItem.setOnClickListener(){
+                saveFavNews(articuloItem)
+            }
 
             }
 
     private fun loadNews(articlesEntity: ArticlesEntity) {
-        binding.tituloItem.text = articlesEntity.titulo
-        binding.descripcionItem.text = articlesEntity.descripcion
-        Picasso.get().load(articlesEntity.imagen).into(binding.imagenProducto)
-        /*
+        binding.tituloItem.text = articuloItem.titulo
+        binding.descripcionItem.text = articuloItem.descripcion
+        Picasso.get().load(articuloItem.imagen).into(binding.imagenProducto)
+
         lifecycleScope.launch(Dispatchers.Main) {
-            fav = withContext(Dispatchers.IO) { ProductsLogica().checkIsSaved(articlesEntity.id.toString()) }
+            fav = withContext(Dispatchers.IO) { ProductsLogica().checkIsSaved(articuloItem.id) }
             if (fav) {
-                binding.floatingActionButtonItem.setImageResource(R.drawable.heart24)
+                binding.botonLikeItem.setImageResource(R.drawable.corazon32)
             }
-        }*/
+        }
     }
 
+    private fun saveFavNews(articulo: ArticlesEntity?) {
+        if (articulo != null) {
+            if (!fav) {
+                lifecycleScope.launch {
+                    ProductsLogica().saveFavNews(articulo)
+                    binding.botonLikeItem.setImageResource(R.drawable.corazon32)
+
+                    Picasso.get().load(articuloItem.imagen).into(binding.imagenProducto)
+                    println("ARTICULO AÑADIDO: " +articulo)
+                    fav =ProductsLogica().checkIsSaved(articuloItem.id)
+                }
+            } else {
+                lifecycleScope.launch {
+                    ProductsLogica().deleteNewFavNews(articulo)
+                    println("ARTICULO ElIMINADO: " +articulo)
+                    binding.botonLikeItem.setImageResource(R.drawable.corazon_adoptame)
+                    fav =ProductsLogica().checkIsSaved(articuloItem.id)
+                }
+            }
+        }
+    }
 
 
         }

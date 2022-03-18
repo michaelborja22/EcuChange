@@ -24,8 +24,8 @@ class ProductsAdapter(val productsItemsList: List<ArticlesEntity>,val onClickIte
     //Asigna cada uno de los elementos al viewholder
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         val item= productsItemsList[position]
-        print("Tamaño de lista: "+productsItemsList.size+"\n")
-        print("\nTITULO: "+item.titulo+"\n")
+        //print("Tamaño de lista: "+productsItemsList.size+"\n")
+       // print("\nTITULO: "+item.titulo+"\n")
         if(((productsItemsList.size/2)+position-1)<productsItemsList.size-1) {
             val item2 = productsItemsList[(productsItemsList.size / 2) + position ]
 
@@ -34,7 +34,6 @@ class ProductsAdapter(val productsItemsList: List<ArticlesEntity>,val onClickIte
             }
         }
 
-        print("\n"+position+"\n")
     }
 
     override fun getItemCount(): Int = productsItemsList.size/2
@@ -46,7 +45,6 @@ class ProductsViewHolder(productsView: View) : RecyclerView.ViewHolder(productsV
     private val binding: ItemProductsListBinding = ItemProductsListBinding.bind(productsView)
 
     fun render(item: ArticlesEntity,item2: ArticlesEntity,onClickItemSelected: (ArticlesEntity) -> Unit){
-        print("\n\nid: "+item.id+" Nombre: "+item.titulo+"      "+item.imagen)
         binding.txtTitulo.text=item.titulo
         binding.precio.text=item.precio.toString()
         binding.txtTitulo2.text=item2.titulo

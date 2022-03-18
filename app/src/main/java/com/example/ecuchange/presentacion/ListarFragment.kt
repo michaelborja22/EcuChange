@@ -57,8 +57,9 @@ private lateinit var binding: FragmentListarBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadArticulos(category)
 
+
+        loadArticulos(category)
         binding.tabLayout.addOnTabSelectedListener(
             object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -85,6 +86,12 @@ private lateinit var binding: FragmentListarBinding
             val items = withContext(Dispatchers.IO) {
                 ProductsLogica().getProductsList(category)
             }
+            val articulo = withContext(Dispatchers.IO) {
+                //ProductsLogica().getOneProduct()
+            }
+
+            println(articulo)
+
             binding.listRecyclerView.layoutManager = LinearLayoutManager(binding.listRecyclerView.context)
             binding.listRecyclerView.adapter = ProductsAdapter(items){getProductsItem(it)}
             binding.progressBar.visibility = View.GONE

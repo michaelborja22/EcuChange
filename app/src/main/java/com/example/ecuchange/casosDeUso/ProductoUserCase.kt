@@ -5,6 +5,7 @@ import com.example.ecuchange.data.api.entidades.toArticlesEntity
 import com.example.ecuchange.data.api.service.ArticulosService
 import com.example.ecuchange.entities.Products
 import com.example.ecuchange.utils.EcuChange
+
 import retrofit2.create
 
 class ProductoUserCase {
@@ -29,7 +30,7 @@ class ProductoUserCase {
 //
 //    )
 
-    suspend fun getAllProducts( category: String ): List<ArticlesEntity> {
+    suspend fun getAllProducts(category: String): List<ArticlesEntity> {
         val url: String
         if (category.isNotEmpty()) {
             url = "filtroCategoria/$category"
@@ -49,11 +50,33 @@ class ProductoUserCase {
         return resp
     }
 
-    /*
-    suspend fun getOneNews(id: String): ArticlesEntity {
-        val service = RetrofitAPI.getArticulosApi().create(ArticulosService::class.java)
-        val call = service.get
+
+    suspend fun getOneProduct(id: String): ArticlesEntity {
+        val service = RetrofitAPI.getOneArticulosApi().create(ArticulosService::class.java)
+        val call = service.getOneArticulo(id)
+        val articulo1 : ArticlesEntity
+        if (call.isSuccessful) {
+            val body = call.body()
+            articulo1 = body!!.toArticlesEntity()
+            return articulo1
+        } else
+        return ArticlesEntity("","","","",50)
 
     }
-*/
+
+    suspend fun saveNewFavNews(articulo: ArticlesEntity) {
+        EcuChange.getDatabase().articulosDao().insertProducts(articulo)
+    }
+
+    suspend fun deleteNewFavNews(articulo: ArticlesEntity) {
+        EcuChange.getDatabase().articulosDao().deleteNewsById(articulo.id.toString())
+    }
+
+    suspend fun getOneFavoriteProduct(id: String) : ArticlesEntity{
+        return EcuChange.getDatabase().articulosDao().getProductsById(id)
+    }
+
 }
+
+
+

@@ -10,18 +10,24 @@ class ProductsLogica {
         return ProductoUserCase().getAllProducts(category)
     }
 
-    /*
+
     suspend fun checkIsSaved(id: String): Boolean {
-        val n = ProductoUserCase().getOneNews(id)
+        val n = ProductoUserCase().getOneFavoriteProduct(id)
         return n != null
     }
-    */
 
 
-//    suspend fun getOneProduct(): Products{
-//        val r = (0..2).random()
-//        print("\nR:" + r+"\n")
-//        return ProductoUserCase().getAllProducts()[r]
-//    }
+
+    suspend fun getOneProduct(id : String): ArticlesEntity{
+      return ProductoUserCase().getOneProduct(id)
+  }
+
+    suspend fun saveFavNews(news: ArticlesEntity) {
+        ProductoUserCase().saveNewFavNews(news)
+    }
+
+    suspend fun deleteNewFavNews(news: ArticlesEntity) {
+        ProductoUserCase().deleteNewFavNews(news)
+    }
 
 }
