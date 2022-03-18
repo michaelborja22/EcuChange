@@ -4,85 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentacion.InformationUser">
-
-    <TextView
-        android:id="@+id/textRegistro"
-        style="@style/titulos"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="92dp"
-        android:text="Edita tu perfil"
-
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/botonRegresar"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/botonRegresar"
-        android:layout_width="42dp"
-
-        android:layout_height="39dp"
-
-        android:layout_marginStart="4dp"
-        android:background="@color/white"
-        android:scaleX="1.2"
-        android:scaleY="1.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/flecha" />
-
-
-    <Button
-        android:id="@+id/botonGuardarUsuario"
-        style="@style/Widget.Material3.Button.TonalButton.Icon"
-        android:layout_width="96dp"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/white"
-        android:gravity="right"
-        android:text="Guardar"
-        android:textColor="@color/celeste"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imagenUsuario"
-        android:layout_width="178dp"
-        android:layout_height="172dp"
-        android:layout_margin="10dp"
-
-        android:background="@drawable/bordes_cardview"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textRegistro"
-        app:srcCompat="@drawable/perfil128" />
-
-    <ImageView
-        android:id="@+id/botonCargarImagen"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="10dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/bordes_camara"
-        app:layout_constraintBottom_toBottomOf="@+id/imagenUsuario"
-        app:layout_constraintEnd_toEndOf="@+id/imagenUsuario"
-        app:srcCompat="@drawable/camara" />
+    tools:context=".ProductoRegisterActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="414dp"
-        android:layout_height="456dp"
-        android:layout_marginTop="196dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
         android:padding="33dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textRegistro">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textRegistro"
+            style="@style/titulos"
+            android:layout_width="161dp"
+            android:layout_height="91dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="5sp"
+            android:text="!Únete a EcuChange!"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textNombre"
@@ -177,7 +119,6 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/bordes_register"
-            android:editable="true"
             android:ems="10"
             android:hint="Usuario"
             android:inputType="text"
@@ -191,17 +132,44 @@
             android:layout_height="wrap_content"
             android:text="Contraseña" />
 
+        <EditText
+            android:id="@+id/txtPasswordR"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bordes_register"
+            android:drawableRight="@drawable/candado24"
+            android:ems="10"
+            android:inputType="textPassword"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <Button
+            android:id="@+id/botonRegistrar"
+
+            style="@style/Widget.Material3.Button.TonalButton.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/rojizo"
+            android:gravity="bottom|center_horizontal"
+            android:text="Registrarme"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/botonRegresar"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:srcCompat="@drawable/back_arrow_icon_134660" />
+
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/botonRecuperarImagen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="309dp"
-        tools:layout_editor_absoluteY="162dp"
-        tools:ignore="MissingConstraints" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
