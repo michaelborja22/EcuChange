@@ -71,10 +71,6 @@ class InformationUser : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.botonRecuperarImagen.setOnClickListener() {
-            val imagen = binding.imagenUsuario
-            println(imagen)
-        }
     }
 
     suspend fun updateData (nombre: String, apellido: String, correo: String, user: String, direccion: String) {

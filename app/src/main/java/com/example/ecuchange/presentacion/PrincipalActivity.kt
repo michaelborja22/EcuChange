@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.example.ecuchange.R
-import com.example.ecuchange.data.database.ArticulosDataBase
 import com.example.ecuchange.databinding.ActivityPrincipalBinding
 import androidx.fragment.app.Fragment as Fragment
 
@@ -63,6 +62,16 @@ class PrincipalActivity : AppCompatActivity() {
                     ant = R.id.botonChat
                     true
                 }
+            R.id.botonPerfil -> {
+                binding.bottomNavigation.getOrCreateBadge(R.id.botonPerfil).isVisible=false
+                // An icon only badge will be displayed unless a number is set:
+                if(item.itemId!=ant){
+                    createFragment(TuFragment())
+                    lstFragments.add(R.id.botonPerfil)
+                }
+                ant = R.id.botonPerfil
+                true
+            }
                 else -> false
             }
         }

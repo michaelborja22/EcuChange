@@ -81,6 +81,7 @@
                 android:id="@+id/imagen_producto2"
                 android:layout_width="match_parent"
                 android:layout_height="162dp"
+                android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -112,9 +113,11 @@
             >
 
             <ImageView
+
                 android:id="@+id/imagen_producto1"
                 android:layout_width="match_parent"
                 android:layout_height="162dp"
+                android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

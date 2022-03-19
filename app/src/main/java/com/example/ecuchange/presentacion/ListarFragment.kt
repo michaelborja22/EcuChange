@@ -41,16 +41,17 @@ private lateinit var binding: FragmentListarBinding
     private var category: String = "6212ef2448b036d3701843e7"
     private lateinit var oneUser: UsuarioEntity
     var par:Boolean=true
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding= FragmentListarBinding.inflate(inflater,container,false)
 
-        binding.botonPerfil.setOnClickListener() {
+        /*binding.botonPerfil.setOnClickListener() {
             var intent = Intent(activity, InformationUser::class.java)
             startActivity(intent)
-        }
+        }*/
 
         return binding.root
     }

@@ -76,10 +76,10 @@
     </style>
 
     <style name="titulos">
-        <item name="android:textSize">0sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:height">40dp</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/plomoAzulado</item>
         <item name="android:textStyle">bold</item>
 
     </style>
