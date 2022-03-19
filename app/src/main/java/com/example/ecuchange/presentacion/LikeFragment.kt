@@ -32,15 +32,14 @@ class LikeFragment : Fragment() {
         binding = FragmentLikeBinding.inflate(inflater, container, false)
 
         // Inflate the layout for this fragment
+
+
         return binding.root
     }
 
     override fun onStart() {
         super.onStart()
         productsControllerModel.searchFavNews("")
-
-
-
 
          productsControllerModel.retFavNews.observe(viewLifecycleOwner) {
              var productos: List<ArticlesEntity>  = it
@@ -58,7 +57,7 @@ class LikeFragment : Fragment() {
             binding.progressBarFav.visibility = View.VISIBLE
             lifecycleScope.launch(Dispatchers.Main) {
                 binding.listRecyclerViewFav.adapter =
-                    ProductsAdapter(productos,par) { getNewsItem(it) }
+                    ProductsAdapter(productos,par) { getProductsItem(it) }
                 binding.listRecyclerViewFav.layoutManager =
                     LinearLayoutManager(binding.listRecyclerViewFav.context)
                 binding.progressBarFav.visibility = View.GONE
@@ -66,10 +65,12 @@ class LikeFragment : Fragment() {
         }
     }
 
-    private fun getNewsItem(articlesEntity: ArticlesEntity) {
+    private fun getProductsItem(articlesEntity: ArticlesEntity) {
         var i = Intent(activity, ItemActivity::class.java)
         val jsonString = Json.encodeToString(articlesEntity)
-        i.putExtra("noticia", jsonString)
+        val jsonStringUsuario = Json.encodeToString(articlesEntity)
+        i.putExtra("producto", jsonString)
+        i.putExtra("usuario", jsonStringUsuario)
         startActivity(i)
     }
 

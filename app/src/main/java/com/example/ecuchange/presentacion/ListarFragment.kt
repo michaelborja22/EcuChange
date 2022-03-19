@@ -47,9 +47,6 @@ private lateinit var binding: FragmentListarBinding
         savedInstanceState: Bundle?
     ): View? {
         binding= FragmentListarBinding.inflate(inflater,container,false)
-        var myValue: String? = this.arguments?.getString("message")
-        println("AquII ESTOYYY "+myValue)
-        println()
         return binding.root
     }
 

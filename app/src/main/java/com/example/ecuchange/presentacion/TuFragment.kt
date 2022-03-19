@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.adoptame.database.entidades.ArticlesEntity
 import com.example.ecuchange.data.database.entidades.UsuarioEntity
 import com.example.ecuchange.databinding.FragmentListarBinding
 import com.example.ecuchange.databinding.FragmentTuBinding
@@ -14,6 +15,8 @@ import com.example.ecuchange.logica.UsuarioLogica
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
 class TuFragment : Fragment() {
     private lateinit var binding: FragmentTuBinding
@@ -26,16 +29,31 @@ class TuFragment : Fragment() {
         binding = FragmentTuBinding.inflate(inflater, container, false)
 
         var nombreUsuario: String? = this.arguments?.getString("message")
-        //println("Nombre del usuario"+nombreUsuario)
+        var usuario: String? = this.arguments?.getString("usuario").toString()
+        println("Nombre del usuario"+usuario)
 
-        binding.txtNombrePerfil.setText(nombreUsuario)
+        oneUser = Json.decodeFromString<UsuarioEntity>(this.arguments?.getString("usuario").toString())
+
+        if(oneUser.nombre==null) {
+            binding.txtNombrePerfil.setText("Entra o \nRegístrate")
+        }else{
+            binding.txtNombrePerfil.setText(nombreUsuario)
+            binding.botonIrALogin.visibility =View.GONE
+        }
 
         binding.botonEditarPerfil.setOnClickListener() {
-
             var intent = Intent(activity, InformationUser::class.java)
             println()
             startActivity(intent)
         }
+
+        binding.botonIrALogin.setOnClickListener() {
+            var intent = Intent(activity, LoginActivity::class.java)
+            println()
+            startActivity(intent)
+        }
+
+
 
         return binding.root
 

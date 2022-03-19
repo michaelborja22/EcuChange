@@ -68,7 +68,7 @@
 
     <style name="txtsRegister">
         <item name="android:textSize">15sp</item>
-        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:background">@color/plomoClaro</item>
         <item name="android:textColor">@color/negroClaro</item>

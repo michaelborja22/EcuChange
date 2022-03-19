@@ -12,6 +12,8 @@ import com.example.ecuchange.logica.UsuarioLogica
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import androidx.fragment.app.Fragment as Fragment
 
 class PrincipalActivity : AppCompatActivity() {
@@ -19,6 +21,7 @@ class PrincipalActivity : AppCompatActivity() {
     private lateinit var binding: com.example.ecuchange.databinding.ActivityPrincipalBinding
     private var lstFragments = mutableListOf<Int>()
     private lateinit var oneUser: UsuarioEntity
+    var bundle: Bundle = Bundle()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,7 @@ class PrincipalActivity : AppCompatActivity() {
         binding.bottomNavigation.getOrCreateBadge(R.id.botonGusta).number=2
 
         var ant = 0
-        var bundle: Bundle = Bundle()
+
         var tuFragment = TuFragment()
         tuFragment.setArguments(bundle)
 
@@ -89,15 +92,7 @@ class PrincipalActivity : AppCompatActivity() {
             hideSoftkeyboard(binding.activityPrincipal)
         }
 
-        val dbSh = this.getSharedPreferences("dataUser", Context.MODE_PRIVATE)
-        var id = dbSh.getString("id_User", "")
-        println(id)
-        CoroutineScope(Dispatchers.Main).launch {
-            // access = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
-            oneUser = UsuarioLogica().getOneUser(id.toString())
-            bundle.putString("message", oneUser.nombre + " "  + oneUser.apellido)
-            println("USUARIO: "+oneUser)
-        }
+        recuperarUsuario()
 
 
 
@@ -129,7 +124,17 @@ class PrincipalActivity : AppCompatActivity() {
 
     }
 
-
+fun recuperarUsuario(){
+    val dbSh = this.getSharedPreferences("dataUser", Context.MODE_PRIVATE)
+    var id = dbSh.getString("id_User", "")
+    CoroutineScope(Dispatchers.Main).launch {
+        // access = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
+        oneUser = UsuarioLogica().getOneUser(id.toString())
+        bundle.putString("message", oneUser.nombre + " "  + oneUser.apellido)
+        val jsonStringUsuario = Json.encodeToString(oneUser)
+        bundle.putSerializable("usuario",jsonStringUsuario)
+    }
+}
 
     fun suma(x: Int, y:Int, su:(Int,Int)->Int){
         su(x,y)
