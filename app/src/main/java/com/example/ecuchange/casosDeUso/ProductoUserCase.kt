@@ -76,6 +76,11 @@ class ProductoUserCase {
         return EcuChange.getDatabase().articulosDao().getProductsById(id)
     }
 
+    suspend fun getFavoritesProducts(): List<ArticlesEntity> {
+        val db = EcuChange.getDatabase()
+        return db.articulosDao().getAllProducts()
+    }
+
 }
 
 

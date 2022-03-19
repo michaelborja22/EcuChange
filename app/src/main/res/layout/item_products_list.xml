@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toEndOf="@+id/cardView3"
+        app:layout_constraintStart_toEndOf="@+id/cardView1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
@@ -25,7 +25,7 @@
             android:background="@drawable/bordes_cardview">
 
             <TextView
-                android:id="@+id/txt_titulo"
+                android:id="@+id/txt_titulo2"
                 style="@style/tituloProducto"
                 android:layout_width="152dp"
                 android:layout_height="43dp"
@@ -33,7 +33,7 @@
                 android:layout_marginStart="16dp"
                 android:gravity="center|left"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/precio"
+                app:layout_constraintTop_toBottomOf="@+id/precio2"
                 tools:text="Titulo">
 
             </TextView>
@@ -51,7 +51,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagen_producto" />
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto2" />
 
             <Button
                 android:id="@+id/botonLike"
@@ -64,21 +64,21 @@
                 app:iconTint="@color/plomo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/precio"
-                app:layout_constraintTop_toBottomOf="@+id/imagen_producto" />
+                app:layout_constraintStart_toEndOf="@+id/precio2"
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto2" />
 
             <TextView
-                android:id="@+id/precio"
+                android:id="@+id/precio2"
                 style="@style/preciosProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Precio"
                 app:layout_constraintStart_toEndOf="@+id/textView16"
-                app:layout_constraintTop_toBottomOf="@+id/imagen_producto" />
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto2" />
 
             <ImageView
-                android:id="@+id/imagen_producto"
+                android:id="@+id/imagen_producto2"
                 android:layout_width="match_parent"
                 android:layout_height="162dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +93,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/cardView1"
         android:layout_width="185dp"
         android:layout_height="235dp"
 
@@ -112,7 +112,7 @@
             >
 
             <ImageView
-                android:id="@+id/imagen_producto2"
+                android:id="@+id/imagen_producto1"
                 android:layout_width="match_parent"
                 android:layout_height="162dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -134,10 +134,10 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagen_producto2" />
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto1" />
 
             <Button
-                android:id="@+id/botonLike2"
+                android:id="@+id/botonLike1"
                 style="@style/iconoMeGusta"
                 android:layout_width="29dp"
                 android:layout_height="30dp"
@@ -147,24 +147,24 @@
                 app:iconTint="@color/plomo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/precio2"
-                app:layout_constraintTop_toBottomOf="@+id/imagen_producto2" />
+                app:layout_constraintStart_toEndOf="@+id/precio1"
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto1" />
 
             <TextView
-                android:id="@+id/txt_titulo2"
+                android:id="@+id/txt_titulo1"
                 style="@style/tituloProducto"
                 android:layout_width="152dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
                 android:gravity="center|left"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/precio2"
+                app:layout_constraintTop_toBottomOf="@+id/precio1"
                 tools:text="Titulo">
 
             </TextView>
 
             <TextView
-                android:id="@+id/precio2"
+                android:id="@+id/precio1"
                 style="@style/preciosProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                 android:text="Precio"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/textView19"
-                app:layout_constraintTop_toBottomOf="@+id/imagen_producto2" />
+                app:layout_constraintTop_toBottomOf="@+id/imagen_producto1" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

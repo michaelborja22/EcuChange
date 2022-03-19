@@ -40,7 +40,7 @@ private lateinit var binding: FragmentListarBinding
 
     private var category: String = "6212ef2448b036d3701843e7"
     private lateinit var oneUser: UsuarioEntity
-
+    var par:Boolean=true
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -83,7 +83,7 @@ private lateinit var binding: FragmentListarBinding
 
         lifecycleScope.launch(Dispatchers.Main)
         {
-            val items = withContext(Dispatchers.IO) {
+            var items = withContext(Dispatchers.IO) {
                 ProductsLogica().getProductsList(category)
             }
             val articulo = withContext(Dispatchers.IO) {
@@ -93,13 +93,26 @@ private lateinit var binding: FragmentListarBinding
             println(articulo)
 
             binding.listRecyclerView.layoutManager = LinearLayoutManager(binding.listRecyclerView.context)
-            binding.listRecyclerView.adapter = ProductsAdapter(items){getProductsItem(it)}
+
+            //Cuando la lista es impar se debe crear un articulo extra para que se mande al view holder y asi
+            //el ultimo articulo de la lista original
+            if(items.size%2==1){
+                par=false
+                val entrees: MutableList<ArticlesEntity> = mutableListOf()
+                entrees.addAll(items)
+                entrees.add(ArticlesEntity("","","","https://img.clasf.co/2020/06/14/Chevrolet-optra-2007-1-4-20200614132958.5596560015.jpg",0))
+                items=entrees
+                println(items[3])
+            }else{
+                par=true
+            }
+            binding.listRecyclerView.adapter = ProductsAdapter(items,par){getProductsItem(it)}
             binding.progressBar.visibility = View.GONE
         }
     }
 
     fun clear() {
-        binding.listRecyclerView.adapter = ProductsAdapter(emptyList()){getProductsItem(it)}
+        binding.listRecyclerView.adapter = ProductsAdapter(emptyList(),par){getProductsItem(it)}
     }
 
     private fun getProductsItem(articlesEntity: ArticlesEntity) {

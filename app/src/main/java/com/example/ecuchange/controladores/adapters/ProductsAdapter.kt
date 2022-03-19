@@ -3,6 +3,7 @@ package com.example.ecuchange.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adoptame.database.entidades.ArticlesEntity
 import com.example.ecuchange.R
@@ -10,7 +11,7 @@ import com.example.ecuchange.databinding.ItemProductsListBinding
 import com.example.ecuchange.entities.Products
 import com.squareup.picasso.Picasso
 
-class ProductsAdapter(val productsItemsList: List<ArticlesEntity>,val onClickItemSelected: (ArticlesEntity) -> Unit):
+class ProductsAdapter(val productsItemsList: List<ArticlesEntity>, var par: Boolean,val onClickItemSelected: (ArticlesEntity) -> Unit):
     RecyclerView.Adapter<ProductsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
@@ -26,11 +27,15 @@ class ProductsAdapter(val productsItemsList: List<ArticlesEntity>,val onClickIte
         val item= productsItemsList[position]
         //print("Tamaño de lista: "+productsItemsList.size+"\n")
        // print("\nTITULO: "+item.titulo+"\n")
-        if(((productsItemsList.size/2)+position-1)<productsItemsList.size-1) {
+        println("POSICION: "+position+", TAMAÑO LISTA: "+(productsItemsList.size/2))
+        if(((productsItemsList.size/2)+position)<productsItemsList.size) {
             val item2 = productsItemsList[(productsItemsList.size / 2) + position ]
+            holder.render2(item,item2,onClickItemSelected)
+        }
 
-            holder.render(item,item2,onClickItemSelected)
-            for (i in 0..productsItemsList.size) {
+        if(par==false){
+            if(position+1==productsItemsList.size/2){
+                holder.render1(item,onClickItemSelected)
             }
         }
 
@@ -44,20 +49,32 @@ class ProductsViewHolder(productsView: View) : RecyclerView.ViewHolder(productsV
 
     private val binding: ItemProductsListBinding = ItemProductsListBinding.bind(productsView)
 
-    fun render(item: ArticlesEntity,item2: ArticlesEntity,onClickItemSelected: (ArticlesEntity) -> Unit){
-        binding.txtTitulo.text=item.titulo
-        binding.precio.text=item.precio.toString()
+    fun render2(item: ArticlesEntity,item2: ArticlesEntity,onClickItemSelected: (ArticlesEntity) -> Unit){
+        binding.txtTitulo1.text=item.titulo
+        binding.precio1.text=item.precio.toString()
         binding.txtTitulo2.text=item2.titulo
         binding.precio2.text=item2.precio.toString()
-       Picasso.get().load(item.imagen).into(binding.imagenProducto)
+       Picasso.get().load(item.imagen).into(binding.imagenProducto1)
         Picasso.get().load(item2.imagen).into(binding.imagenProducto2)
-        binding.cardView3.setOnClickListener {
-            onClickItemSelected(item2)
-        }
-        binding.cardView2.setOnClickListener {
+        binding.cardView1.setOnClickListener {
             onClickItemSelected(item)
         }
+        binding.cardView2.setOnClickListener {
+            onClickItemSelected(item2)
+        }
 
+    }
+
+    fun render1(item: ArticlesEntity,onClickItemSelected: (ArticlesEntity) -> Unit){
+        binding.txtTitulo1.text=item.titulo
+        println("PINTANDO IMPAR")
+        binding.precio1.text=item.precio.toString()
+        Picasso.get().load(item.imagen).into(binding.imagenProducto1)
+        binding.cardView1.setOnClickListener {
+            onClickItemSelected(item)
+        }
+        binding.txtTitulo2.isInvisible
+        binding.cardView2.isInvisible=true
     }
 
 }
