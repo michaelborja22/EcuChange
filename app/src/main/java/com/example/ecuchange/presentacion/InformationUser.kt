@@ -52,7 +52,6 @@ class InformationUser : AppCompatActivity() {
                 binding.txtEmail.setText(oneUser.correo)
                 binding.txtDireccion.setText(oneUser.direccion)
 
-
         }
 
         binding.botonCargarImagen.setOnClickListener() {

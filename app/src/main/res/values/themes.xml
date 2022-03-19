@@ -68,7 +68,7 @@
 
     <style name="txtsRegister">
         <item name="android:textSize">15sp</item>
-        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:background">@color/plomoClaro</item>
         <item name="android:textColor">@color/negroClaro</item>
@@ -79,9 +79,16 @@
         <item name="android:textSize">15sp</item>
         <item name="android:height">40dp</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="subtitulos">
+        <item name="android:textSize">15sp</item>
+        <item name="android:height">40dp</item>
+        <item name="android:gravity">center_vertical</item>
         <item name="android:textColor">@color/plomoAzulado</item>
         <item name="android:textStyle">bold</item>
-
     </style>
 
     <style name="etiquetasNegras">

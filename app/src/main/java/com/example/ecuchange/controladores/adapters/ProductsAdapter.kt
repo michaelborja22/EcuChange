@@ -27,7 +27,7 @@ class ProductsAdapter(val productsItemsList: List<ArticlesEntity>, var par: Bool
         val item= productsItemsList[position]
         //print("Tamaño de lista: "+productsItemsList.size+"\n")
        // print("\nTITULO: "+item.titulo+"\n")
-        println("POSICION: "+position+", TAMAÑO LISTA: "+(productsItemsList.size/2))
+       // println("POSICION: "+position+", TAMAÑO LISTA: "+(productsItemsList.size/2))
         if(((productsItemsList.size/2)+position)<productsItemsList.size) {
             val item2 = productsItemsList[(productsItemsList.size / 2) + position ]
             holder.render2(item,item2,onClickItemSelected)
@@ -67,7 +67,7 @@ class ProductsViewHolder(productsView: View) : RecyclerView.ViewHolder(productsV
 
     fun render1(item: ArticlesEntity,onClickItemSelected: (ArticlesEntity) -> Unit){
         binding.txtTitulo1.text=item.titulo
-        println("PINTANDO IMPAR")
+        //println("PINTANDO IMPAR")
         binding.precio1.text=item.precio.toString()
         Picasso.get().load(item.imagen).into(binding.imagenProducto1)
         binding.cardView1.setOnClickListener {

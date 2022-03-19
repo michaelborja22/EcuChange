@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentacion.TuFragment">
+    tools:context=".presentacion.TuFragment"
+    >
 
     <ImageView
         android:id="@+id/imagenUsuario"
@@ -14,18 +15,20 @@
 
 
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/perfil128" />
 
     <TextView
         android:id="@+id/txt_NombrePerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="64dp"
+        style="@style/titulos"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
         android:text="Nombre del Usuario"
+        android:textSize="24dp"
         app:layout_constraintStart_toEndOf="@+id/imagenUsuario"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,15 +36,17 @@
         android:background="@color/plomoClaro"
         android:layout_width="409dp"
         android:layout_height="605dp"
+        android:layout_marginTop="15dp"
+        android:paddingTop="30dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagenUsuario">
         <TextView
             android:id="@+id/textView12"
-            style="@style/titulos"
+            style="@style/subtitulos"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="Transacciones" />
+            android:text="TRANSACCIONES" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,7 +71,7 @@
 
         <TextView
             android:id="@+id/textView13"
-            style="@style/titulos"
+            style="@style/subtitulos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CUENTA" />

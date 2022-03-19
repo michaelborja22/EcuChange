@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.NonNull
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -41,20 +42,18 @@ private lateinit var binding: FragmentListarBinding
     private var category: String = "6212ef2448b036d3701843e7"
     private lateinit var oneUser: UsuarioEntity
     var par:Boolean=true
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding= FragmentListarBinding.inflate(inflater,container,false)
-
-        /*binding.botonPerfil.setOnClickListener() {
-            var intent = Intent(activity, InformationUser::class.java)
-            startActivity(intent)
-        }*/
-
+        var myValue: String? = this.arguments?.getString("message")
+        println("AquII ESTOYYY "+myValue)
+        println()
         return binding.root
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -95,8 +94,7 @@ private lateinit var binding: FragmentListarBinding
 
             binding.listRecyclerView.layoutManager = LinearLayoutManager(binding.listRecyclerView.context)
 
-            //Cuando la lista es impar se debe crear un articulo extra para que se mande al view holder y asi
-            //el ultimo articulo de la lista original
+            //Cuando la lista es impar se debe crear un articulo extra para que se mande al view holder y asi mostrar
             if(items.size%2==1){
                 par=false
                 val entrees: MutableList<ArticlesEntity> = mutableListOf()
