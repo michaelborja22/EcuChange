@@ -2,7 +2,9 @@ package com.example.ecuchange.casosDeUso
 import com.example.adoptame.database.entidades.ArticlesEntity
 import com.example.ecuchange.data.api.RetrofitAPI
 import com.example.ecuchange.data.api.entidades.toArticlesEntity
+import com.example.ecuchange.data.api.entidades.toCategoryEntity
 import com.example.ecuchange.data.api.service.ArticulosService
+import com.example.ecuchange.data.database.entidades.CategoryEntity
 import com.example.ecuchange.entities.Products
 import com.example.ecuchange.utils.EcuChange
 
@@ -29,6 +31,20 @@ class ProductoUserCase {
 //
 //
 //    )
+
+    suspend fun getAllCategories (): List<CategoryEntity> {
+        var resp: List<CategoryEntity> = ArrayList<CategoryEntity>()
+
+        val service = RetrofitAPI.getArticulosApi().create(ArticulosService::class.java)
+        val call = service.getAllCategories("categorias")
+
+        resp = if (call.isSuccessful) {
+            return call.body()!!.category.map {
+                it.toCategoryEntity()
+            }
+        } else (ArrayList<CategoryEntity>())
+            return resp
+    }
 
     suspend fun getAllProducts(category: String): List<ArticlesEntity> {
         val url: String

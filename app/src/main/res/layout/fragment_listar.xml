@@ -91,6 +91,11 @@
             android:layout_height="wrap_content"
             android:text="Muebles" />
 
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consola y Videojuegos" />
+
 
     </com.google.android.material.tabs.TabLayout>
 

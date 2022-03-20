@@ -53,6 +53,12 @@ class TuFragment : Fragment() {
             startActivity(intent)
         }
 
+        binding.botonSubirProducto.setOnClickListener() {
+            var intent = Intent(activity, SeleccionarCategoria::class.java)
+            println()
+            startActivity(intent)
+        }
+
 
 
         return binding.root

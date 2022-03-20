@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcuChange">
         <activity
-            android:name=".ProductoRegisterActivity"
+            android:name=".presentacion.SeleccionarCategoria"
+            android:exported="false" />
+        <activity
+            android:name=".presentacion.ProductoRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".presentacion.InformationUser"
@@ -26,10 +29,10 @@
             android:name=".presentacion.ItemActivity"
             android:exported="false" />
         <activity
-            android:name=".presentacion.LoginActivity"
+            android:name=".presentacion.PrincipalActivity"
             android:exported="false" />
         <activity
-            android:name=".presentacion.PrincipalActivity"
+            android:name=".presentacion.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

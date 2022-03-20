@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.adoptame.database.entidades.ArticlesEntity
 import com.example.ecuchange.casosDeUso.ProductoUserCase
+import com.example.ecuchange.data.database.entidades.CategoryEntity
 import com.example.ecuchange.entities.Products
 import kotlinx.coroutines.launch
 
@@ -16,6 +17,10 @@ class ProductsLogica : ViewModel() {
 
     suspend fun getProductsList(category: String):List<ArticlesEntity>{
         return ProductoUserCase().getAllProducts(category)
+    }
+
+    suspend fun getCategoriesList():List<CategoryEntity> {
+        return ProductoUserCase().getAllCategories()
     }
 
 
