@@ -53,7 +53,6 @@
         android:layout_width="178dp"
         android:layout_height="172dp"
         android:layout_margin="10dp"
-
         android:background="@drawable/bordes_cardview"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"

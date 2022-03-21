@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "381008434871",
+    "firebase_url": "https://ecuchangeimagenes-default-rtdb.firebaseio.com",
     "project_id": "ecuchangeimagenes",
     "storage_bucket": "ecuchangeimagenes.appspot.com"
   },
