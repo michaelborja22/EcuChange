@@ -1,6 +1,7 @@
 package com.example.ecuchange.presentacion
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -64,13 +65,14 @@ class PrincipalActivity : AppCompatActivity() {
                     ant = R.id.botonGusta
                     true
                 }
-                R.id.botonChat -> {
+                R.id.botonMas -> {
 
                     if(item.itemId!=ant){
-                        lstFragments.add(R.id.botonChat)
-                        createFragment(ChatFragment())
+
+                        var intent = Intent(applicationContext, SeleccionarCategoria::class.java)
+                        startActivity(intent)
                     }
-                    ant = R.id.botonChat
+
                     true
                 }
             R.id.botonPerfil -> {
@@ -99,7 +101,7 @@ class PrincipalActivity : AppCompatActivity() {
     }
 
 
-    override fun onBackPressed() {
+    override fun onB    ackPressed() {
         super.onBackPressed()
         //Para pasar por la pantalla home al final
         if(lstFragments.isNotEmpty()){

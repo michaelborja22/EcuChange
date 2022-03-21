@@ -11,10 +11,10 @@
         android:title="Me gusta" />
 
     <item
-        android:id="@+id/botonChat"
+        android:id="@+id/botonMas"
         android:clickable="true"
         android:icon="@drawable/mas"
-        android:title="Chat"
+        android:title="Nuevo"
         />
     <item
         android:id="@+id/botonPerfil"
