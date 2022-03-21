@@ -23,6 +23,8 @@ class PrincipalActivity : AppCompatActivity() {
     private var lstFragments = mutableListOf<Int>()
     private lateinit var oneUser: UsuarioEntity
     var bundle: Bundle = Bundle()
+    var botonMasSeleccionado:Boolean=false
+    var ant = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,7 @@ class PrincipalActivity : AppCompatActivity() {
         //Dar notificaciones a los icones de la barra de navegacion
         binding.bottomNavigation.getOrCreateBadge(R.id.botonGusta).number=2
 
-        var ant = 0
+
 
         var tuFragment = TuFragment()
         tuFragment.setArguments(bundle)
@@ -47,7 +49,7 @@ class PrincipalActivity : AppCompatActivity() {
                 R.id.botonInicio -> {
                     binding.bottomNavigation.getOrCreateBadge(R.id.botonGusta).isVisible=false
                     // An icon only badge will be displayed unless a number is set:
-
+                    println("ANT: "+ant)
                     if(item.itemId!=ant){
                         createFragment(ListarFragment())
                         lstFragments.add(R.id.botonInicio)
@@ -57,7 +59,6 @@ class PrincipalActivity : AppCompatActivity() {
                 }
 
                 R.id.botonGusta -> {
-
                     if(item.itemId!=ant){
                         createFragment(LikeFragment())
                         lstFragments.add(R.id.botonGusta)
@@ -66,11 +67,12 @@ class PrincipalActivity : AppCompatActivity() {
                     true
                 }
                 R.id.botonMas -> {
-
+                    println("ANT: "+ant)
                     if(item.itemId!=ant){
-
+                        createFragment(ListarFragment())
+                        lstFragments.add(R.id.botonInicio)
                         var intent = Intent(applicationContext, SeleccionarCategoria::class.java)
-                        startActivity(intent)
+                       startActivity(intent)
                     }
 
                     true
@@ -101,6 +103,7 @@ class PrincipalActivity : AppCompatActivity() {
     }
 
 
+
     override fun onBackPressed() {
         super.onBackPressed()
         //Para pasar por la pantalla home al final
@@ -108,7 +111,6 @@ class PrincipalActivity : AppCompatActivity() {
             lstFragments.removeLast()
             binding.bottomNavigation.menu.findItem(lstFragments.last()).setChecked(true)
         }
-
     }
 
     fun createFragment(fragment: Fragment){
@@ -122,8 +124,6 @@ class PrincipalActivity : AppCompatActivity() {
     fun hideSoftkeyboard(vista: View){
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(vista.windowToken,0)
-
-
     }
 
 fun recuperarUsuario(){

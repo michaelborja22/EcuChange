@@ -2,6 +2,7 @@ package com.example.ecuchange.presentacion
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -79,6 +80,22 @@ class ItemActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.IO).launch {
                     deleteProduct()
                 }
+            }
+            binding.botonComprarItem.setOnClickListener(){
+                var sendIntent = Intent()
+                sendIntent.setAction(Intent.ACTION_VIEW)
+                var uri="whatsapp://send?phone=593"+oneUser.telefono+"&text="+"HOLA! Me interesaria comprar el articulo" +
+                        ": "+articuloItem.titulo+", publicado en ECUCHANGE"
+                sendIntent.setData(Uri.parse(uri))
+                startActivity(sendIntent);
+            }
+            binding.botonIntercambiarItem.setOnClickListener(){
+                var sendIntent = Intent()
+                sendIntent.setAction(Intent.ACTION_VIEW)
+                var uri="whatsapp://send?phone=593"+oneUser.telefono+"&text="+"HOLA! Me interesaria intercambiar el articulo" +
+                        ": "+articuloItem.titulo+", publicado en ECUCHANGE"
+                sendIntent.setData(Uri.parse(uri))
+                startActivity(sendIntent);
             }
             }
 
