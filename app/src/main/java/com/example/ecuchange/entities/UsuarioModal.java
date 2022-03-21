@@ -8,15 +8,17 @@ public class UsuarioModal {
     private String user;
     private String password;
     private String direccion;
+    private String telefono;
     private String urlImagen;
 
-    public UsuarioModal(String nombre, String apellido, String correo, String user, String password, String direccion, String urlImagen) {
+    public UsuarioModal(String nombre, String apellido, String correo, String user, String password, String direccion, String telefono,String urlImagen) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.user = user;
         this.password = password;
         this.direccion = direccion;
+        this.telefono = telefono;
         this.urlImagen = urlImagen;
     }
 
@@ -27,6 +29,16 @@ public class UsuarioModal {
         this.user = user;
         this.direccion = direccion;
         this.urlImagen = urlImagen;
+    }
+
+    public UsuarioModal(String nombre, String apellido, String correo, String user, String password,String direccion, String telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.user = user;
+        this.password = password;
+        this.direccion = direccion;
+        this.telefono = telefono;
     }
 
     public UsuarioModal(String password) {

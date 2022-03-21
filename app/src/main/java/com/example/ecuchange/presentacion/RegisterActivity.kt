@@ -36,13 +36,13 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.botonRegistrar.setOnClickListener() {
-            if (binding.txtNombre.text.isEmpty() ||  binding.txtApellido.text.isEmpty() || binding.txtEmail.text.isEmpty() || binding.txtUsuario.text.isEmpty() || binding.txtPasswordR.text.isEmpty()) {
+            if (binding.txtNombre.text.isEmpty() ||  binding.txtApellido.text.isEmpty() || binding.txtEmail.text.isEmpty() || binding.txtUsuario.text.isEmpty() || binding.txtPasswordR.text.isEmpty() || binding.telefono.text.isEmpty()) {
                 Toast.makeText(this,"Complete los campos",
                     Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             CoroutineScope(Dispatchers.IO).launch {
-                postData(binding.txtNombre.text.toString(), binding.txtApellido.text.toString(), binding.txtEmail.text.toString(), binding.txtUsuario.text.toString(), binding.txtPasswordR.text.toString(), binding.txtDireccion.text.toString())
+                postData(binding.txtNombre.text.toString(), binding.txtApellido.text.toString(), binding.txtEmail.text.toString(), binding.txtUsuario.text.toString(), binding.txtPasswordR.text.toString(), binding.txtDireccion.text.toString(), binding.telefono.text.toString())
             }
 
 
@@ -55,9 +55,9 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
-    suspend fun postData (nombre: String, apellido: String, correo: String, user: String, password: String, direccion: String) {
+    suspend fun postData (nombre: String, apellido: String, correo: String, user: String, password: String, direccion: String, telefono: String) {
 
-        val modal = UsuarioModal(nombre,apellido,correo, user,password,direccion)
+        val modal = UsuarioModal(nombre,apellido,correo, user,password,direccion, telefono)
         val service = RetrofitAPI.postUsuariosApi().create(UsuarioService::class.java)
 
         val response = service.createEmployee(modal)
