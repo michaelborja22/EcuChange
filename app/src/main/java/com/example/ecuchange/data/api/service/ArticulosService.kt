@@ -26,5 +26,5 @@ interface ArticulosService {
     suspend fun createArticulo(@Body requestBody: ProductoModal): Response<ProductoModal>
 
     @DELETE("/api/articulo/{id}")
-    suspend fun eliminarProducto(@Path("id")  id: String): Response<UsuarioModal>
+    suspend fun eliminarProducto(@Path("id")  id: String): Boolean
 }

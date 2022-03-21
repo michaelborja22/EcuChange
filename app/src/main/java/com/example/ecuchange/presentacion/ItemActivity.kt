@@ -21,10 +21,7 @@ import com.example.ecuchange.logica.UsuarioLogica
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 
 class ItemActivity : AppCompatActivity() {
@@ -80,19 +77,21 @@ class ItemActivity : AppCompatActivity() {
             binding.botonEliminar.setOnClickListener() {
                 println("Eliminando Producto")
                 CoroutineScope(Dispatchers.IO).launch {
-                    val service =
-                        RetrofitAPI.deleteArticuloApi().create(ArticulosService::class.java)
-                    val response = service.eliminarProducto(articuloItem.id)
-                    if (response.isSuccessful) {
-                        var intent = Intent(applicationContext, MisProductos::class.java )
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(applicationContext,"Retrofit Error ${response.code().toString()}", Toast.LENGTH_SHORT).show()
-                    }
+                    deleteProduct()
                 }
             }
             }
 
+    suspend fun deleteProduct () {
+        val service = RetrofitAPI.deleteArticuloApi().create(ArticulosService::class.java)
+        val response = service.eliminarProducto(articuloItem.id)
+        if (response) {
+                var intent = Intent(this, MisProductos::class.java )
+            startActivity(intent)
+        } else {
+            Toast.makeText(this,"Retrofit Error ${response}", Toast.LENGTH_SHORT).show()
+        }
+    }
     private fun loadNews(articlesEntity: ArticlesEntity) {
         binding.tituloItem.text = articuloItem.titulo
         binding.descripcionItem.text = articuloItem.descripcion

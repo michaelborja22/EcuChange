@@ -16,6 +16,7 @@ import com.example.ecuchange.databinding.ActivitySeleccionarCategoriaBinding
 import com.example.ecuchange.databinding.FragmentListarBinding
 import com.example.ecuchange.logica.ProductsLogica
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.encodeToString
@@ -47,11 +48,9 @@ class MisProductos : AppCompatActivity() {
         binding.listRecyclerViewMisProductos.clearAnimation()
         binding.progressBarFav.visibility = View.VISIBLE
 
-        lifecycleScope.launch(Dispatchers.Main)
+        GlobalScope.launch(Dispatchers.Main)
         {
-            var items = withContext(Dispatchers.IO) {
-                ProductsLogica().getProductsListbyUser(idUser)
-            }
+            var items = ProductsLogica().getProductsListbyUser(idUser)
 
 
             binding.listRecyclerViewMisProductos.layoutManager = LinearLayoutManager(binding.listRecyclerViewMisProductos.context)
