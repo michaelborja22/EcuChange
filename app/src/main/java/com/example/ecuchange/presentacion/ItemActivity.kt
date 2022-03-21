@@ -53,7 +53,7 @@ class ItemActivity : AppCompatActivity() {
                 Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
                 binding.txtUsuario.text = oneUser.nombre+ " "+oneUser.apellido
                 binding.txtTelefono.text = "Telefono: ${oneUser.telefono}"
-                binding.txtDireccion.text = "Telefono: ${oneUser.direccion}"
+                binding.txtDireccion.text = "Dirección: ${oneUser.direccion}"
             }
 
             if (articuloItem != null) {
