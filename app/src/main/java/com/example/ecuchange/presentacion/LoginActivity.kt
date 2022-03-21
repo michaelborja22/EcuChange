@@ -66,6 +66,8 @@ class LoginActivity : AppCompatActivity() {
             hideSoftkeyboard(binding.loginPrincipal)
         }
 
+
+
 /*
 Antes
         super.onCreate(savedInstanceState)
@@ -85,6 +87,13 @@ Antes
         }
 */
 
+    }
+
+    override fun onBackPressed(){
+        var intent = Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     fun hideSoftkeyboard(vista: View){

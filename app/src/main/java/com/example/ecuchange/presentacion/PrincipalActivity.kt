@@ -157,8 +157,8 @@ fun recuperarUsuario(){
             // TODO Auto-generated method stub
             if (keyCode == event?.keyCode) {
                 var builder = AlertDialog.Builder(this)
-                builder.setTitle("Androidly Alert")
-                builder.setMessage("¿Desea salir de Stroopers?")
+                builder.setTitle("Alerta")
+                builder.setMessage("¿Desea salir de EcuChange?")
                 builder.setPositiveButton(android.R.string.yes) { dialog, which ->
                     Toast.makeText(
                         applicationContext,
