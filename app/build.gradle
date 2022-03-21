@@ -82,6 +82,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.0'
 
     //DatosEntreFragments
+
     implementation 'androidx.fragment:fragment:1.3.0-alpha07'
 
     //FIREBASE

@@ -40,7 +40,7 @@ class InformationUser : AppCompatActivity() {
     private val File = 1
     private val database = Firebase.database
     val myRef = database.getReference("user")
-    private lateinit var UrlImagenUser: String
+    private var UrlImagenUser: String =""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

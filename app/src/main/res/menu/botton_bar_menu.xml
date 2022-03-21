@@ -13,7 +13,7 @@
     <item
         android:id="@+id/botonChat"
         android:clickable="true"
-        android:icon="@drawable/chat24"
+        android:icon="@drawable/mas"
         android:title="Chat"
         />
     <item

@@ -1,188 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentacion.ProductoRegisterActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="33dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/txtTitulo"
-            style="@style/etiquetasNegras"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
-            android:text="Titulo" />
-
-
-        <EditText
-            android:id="@+id/titulo"
-            style="@style/txtsRegister"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bordes_register"
-            android:ems="10"
-
-            android:hint="Ingrese el titulo"
-            android:inputType="text"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/txtDescripcion"
-            style="@style/etiquetasNegras"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Descripcion" />
-
-        <EditText
-            android:id="@+id/descripcion"
-            style="@style/txtsRegister"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bordes_register"
-            android:hint="Ingrese una descripcion "
-            android:inputType="text"
-            android:textSize="16sp" />
-
-
-        <TextView
-            android:id="@+id/txtCategoria"
-            style="@style/etiquetasNegras"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Categoria" />
+        android:backgroundTint="@color/rojizo"
+        >
 
         <LinearLayout
-            android:layout_width="301dp"
-            android:layout_height="37dp"
-            android:orientation="horizontal">
+            android:background="@color/blancoClaro"
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="33dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                >
+
+                <TextView
+                    android:id="@+id/categoria"
+                    style="@style/etiquetasNegras"
+                    android:paddingLeft="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categoria"
+                    android:backgroundTint="@color/white"
+                    android:textSize="22sp" />
+
+                <ImageButton
+                    android:id="@+id/botonEditar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    app:srcCompat="@drawable/cambiar" />
+
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:id="@+id/imagenProductoSubido"
+                    android:layout_width="178dp"
+                    android:layout_height="172dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bordes"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:padding="30dp"
+                    android:backgroundTint="@color/celesteApagado"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/camara_producto" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imagenProductoSubido"
+                    app:layout_constraintEnd_toEndOf="@+id/imagenProductoSubido"
+                    app:layout_constraintStart_toStartOf="@+id/imagenProductoSubido"
+                    app:srcCompat="@android:drawable/ic_menu_upload" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/categoria"
+                android:id="@+id/txtTitulo"
                 style="@style/etiquetasNegras"
-                android:layout_width="219dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Categoria"
-                android:textSize="19sp" />
+                android:backgroundTint="@color/white"
+                android:layout_marginTop="10sp"
+
+                android:text="Titulo" />
+
+
+            <EditText
+                android:id="@+id/titulo"
+                style="@style/txtsRegister"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/bordes"
+                android:ems="10"
+
+                android:hint="Ingrese el titulo"
+
+                android:inputType="text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtDescripcion"
+                style="@style/etiquetasNegras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Descripcion" />
+
+            <EditText
+                android:id="@+id/descripcion"
+                style="@style/txtsRegister"
+                android:layout_width="395dp"
+                android:layout_height="150dp"
+                android:background="@drawable/bordes"
+                android:backgroundTint="@color/white"
+                android:gravity="start"
+                android:paddingRight="15dp"
+                android:hint="Ingrese una descripcion "
+                android:inputType="textMultiLine"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/txtPrecio"
+                style="@style/etiquetasNegras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Precio" />
+
+
+            <EditText
+                android:id="@+id/precio"
+                android:backgroundTint="@color/white"
+                style="@style/txtsRegister"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bordes"
+                android:ems="10"
+                android:hint="$"
+                android:inputType="text"
+                tools:ignore="TouchTargetSizeCheck" />
+
+
+            <TextView
+                android:id="@+id/txtCiudad"
+                style="@style/etiquetasNegras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ciudad" />
+
+
+            <EditText
+                android:id="@+id/ciudad"
+                style="@style/txtsRegister"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bordes"
+                android:ems="10"
+                android:hint="Ciudad"
+                android:inputType="text"
+                android:textSize="16sp"
+                android:backgroundTint="@color/white"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/txtDireccion"
+                style="@style/etiquetasNegras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Direccion"
+                android:backgroundTint="@color/white"/>
+
+            <EditText
+                android:id="@+id/direccion"
+                style="@style/txtsRegister"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bordes"
+                android:ems="10"
+                android:hint="Ciudad"
+                android:inputType="text"
+                android:backgroundTint="@color/white"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/txtEstado"
+                style="@style/etiquetasNegras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Estado"
+                android:backgroundTint="@color/white"/>
+
+
+            <Spinner
+                android:backgroundTint="@color/white"
+                android:id="@+id/estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
 
             <Button
-                android:id="@+id/botonEditar"
-                android:layout_width="67dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Editar" />
+                android:id="@+id/botonRegistrar"
+                style="@style/Widget.Material3.Button.TonalButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="left"
+
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/rojizo"
+
+                android:gravity="bottom|center_horizontal"
+                android:text="Registrar"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
 
         </LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/txtPrecio"
-            style="@style/etiquetasNegras"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Precio" />
-
-
-        <EditText
-            android:id="@+id/precio"
-            style="@style/txtsRegister"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bordes_register"
-            android:ems="10"
-            android:hint="$"
-            android:inputType="text"
-            tools:ignore="TouchTargetSizeCheck" />
-
-
-        <TextView
-            android:id="@+id/txtCiudad"
-            style="@style/etiquetasNegras"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ciudad" />
-
-
-        <EditText
-            android:id="@+id/ciudad"
-            style="@style/txtsRegister"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bordes_register"
-            android:ems="10"
-            android:hint="Ciudad"
-            android:inputType="text"
-            android:textSize="16sp"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <TextView
-            android:id="@+id/txtDireccion"
-            style="@style/etiquetasNegras"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Direccion" />
-
-        <EditText
-            android:id="@+id/direccion"
-            style="@style/txtsRegister"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bordes_register"
-            android:ems="10"
-            android:hint="Ciudad"
-            android:inputType="text"
-            android:textSize="16sp"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <TextView
-            android:id="@+id/txtEstado"
-            style="@style/etiquetasNegras"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Estado" />
-
-
-        <Spinner
-            android:id="@+id/estado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/botonRegistrar"
-
-            style="@style/Widget.Material3.Button.TonalButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/rojizo"
-            android:gravity="bottom|center_horizontal"
-            android:text="Registrar"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <ImageButton
-            android:id="@+id/botonRegresar"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-
-            android:scaleX="1.2"
-            android:scaleY="1.2"
-            app:srcCompat="@drawable/back_arrow_icon_134660" />
-
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

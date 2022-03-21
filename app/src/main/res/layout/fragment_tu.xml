@@ -58,20 +58,29 @@
                 android:id="@+id/botonVerMisProductos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:drawableRight="@drawable/flechita"
+                android:textColor="@color/negroOscuro"
+                android:drawableLeft="@drawable/productito"
+                android:textAlignment="textStart"
+                android:backgroundTint="@color/white"
                 android:text="Mis productos" />
 
             <Button
                 android:id="@+id/botonSubirProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:drawableRight="@drawable/flechita"
+                android:textColor="@color/negroOscuro"
+                android:drawableLeft="@drawable/subirsito"
+                android:textAlignment="textStart"
+                android:backgroundTint="@color/white"
                 android:text="Subir un Producto" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/textView13"
             style="@style/subtitulos"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CUENTA" />
@@ -87,19 +96,30 @@
                 android:id="@+id/botonEditarPerfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Editar Perfil" />
+                android:text="Editar Perfil"
+                android:drawableRight="@drawable/flechita"
+                android:textColor="@color/negroOscuro"
+                android:drawableLeft="@drawable/usuarito"
+                android:textAlignment="textStart"
+                android:backgroundTint="@color/white"/>
 
             <Button
                 android:id="@+id/botonCambiarPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar contraseña" />
+                android:text="Cambiar contraseña"
+                android:drawableRight="@drawable/flechita"
+                android:textColor="@color/negroOscuro"
+                android:drawableLeft="@drawable/candadito"
+                android:textAlignment="textStart"
+                android:backgroundTint="@color/white"/>
 
             <Button
                 android:id="@+id/botonCerrarSesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cerrar sesión" />
+                android:text="Cerrar sesión"
+                android:backgroundTint="@color/rojizo"/>
 
         </LinearLayout>
 

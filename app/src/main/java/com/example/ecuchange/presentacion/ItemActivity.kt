@@ -52,6 +52,7 @@ class ItemActivity : AppCompatActivity() {
             }
 
             var id = articuloItem.idUsuario
+            println(id)
             CoroutineScope(Dispatchers.Main).launch {
                 oneUser = UsuarioLogica().getOneUser(id.toString())
                 Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)

@@ -53,20 +53,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imagen_producto2" />
 
-            <Button
-                android:id="@+id/botonLike"
-                style="@style/iconoMeGusta"
-                android:layout_width="29dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="8dp"
-                app:icon="@drawable/heart24"
-                app:iconGravity="textTop"
-                app:iconTint="@color/plomo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/precio2"
-                app:layout_constraintTop_toBottomOf="@+id/imagen_producto2" />
-
             <TextView
                 android:id="@+id/precio2"
                 style="@style/preciosProducto"
@@ -137,20 +123,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagen_producto1" />
-
-            <Button
-                android:id="@+id/botonLike1"
-                style="@style/iconoMeGusta"
-                android:layout_width="29dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="8dp"
-                app:icon="@drawable/heart24"
-                app:iconGravity="textTop"
-                app:iconTint="@color/plomo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/precio1"
                 app:layout_constraintTop_toBottomOf="@+id/imagen_producto1" />
 
             <TextView
