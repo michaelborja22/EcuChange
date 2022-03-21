@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "381008434871",
+    "project_id": "ecuchangeimagenes",
+    "storage_bucket": "ecuchangeimagenes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381008434871:android:5097e3e86763c8d806df32",
+        "android_client_info": {
+          "package_name": "com.example.ecuchange"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381008434871-rgj5ejgqfucpdajd0dtfu49mk0du6mbn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIJYbLq-F8p6dwFOv-HwZU0PK4by4uGmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381008434871-rgj5ejgqfucpdajd0dtfu49mk0du6mbn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

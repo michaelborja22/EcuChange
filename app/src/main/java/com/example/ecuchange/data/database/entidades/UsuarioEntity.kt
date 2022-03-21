@@ -16,6 +16,7 @@ data class UsuarioEntity (
     val apellido: String? = null ,
     val direccion: String? = null ,
     val telefono: String? = null,
+    val urlImagen: String? = null,
 ) {
 
 }

@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcuChange">
         <activity
+            android:name=".uploadImagen"
+            android:exported="false" />
+        <activity
             android:name=".presentacion.CambioPassword"
             android:exported="false" />
         <activity

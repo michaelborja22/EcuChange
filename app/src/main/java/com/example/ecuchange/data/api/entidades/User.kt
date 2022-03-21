@@ -13,10 +13,11 @@ data class User(
     val password: String,
     val user: String,
     val telefono: String,
+    val urlImagen: String,
 )
 
 fun User.toUsuariosEntity() = UsuarioEntity(_id, user, password, correo)
 
-fun User.toOneUserEntity() = UsuarioEntity(_id, user, password, correo, nombre, apellido, direccion,telefono)
+fun User.toOneUserEntity() = UsuarioEntity(_id, user, password, correo, nombre, apellido, direccion,telefono,urlImagen)
 
 fun User.toLiteOneUserEntity() =  UsuarioEntity(_id, user, password, correo, telefono)

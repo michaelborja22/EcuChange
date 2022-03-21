@@ -12,6 +12,7 @@ import com.example.ecuchange.data.database.entidades.UsuarioEntity
 import com.example.ecuchange.databinding.FragmentListarBinding
 import com.example.ecuchange.databinding.FragmentTuBinding
 import com.example.ecuchange.logica.UsuarioLogica
+import com.example.ecuchange.uploadImagen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -76,6 +77,7 @@ class TuFragment : Fragment() {
             println()
             startActivity(intent)
         }
+
 
 
 
