@@ -12,7 +12,8 @@ data class Article(
     val estado: String,
     val imagen: String,
     val precio: Int,
-    val titulo: String
+    val titulo: String,
+    val idUsuario: String,
 )
 
-fun Article.toArticlesEntity() = ArticlesEntity(_id,titulo,descripcion,imagen, precio)
+fun Article.toArticlesEntity() = ArticlesEntity(_id,titulo,descripcion,imagen, precio, idUsuario)

@@ -1,17 +1,21 @@
 package com.example.ecuchange.presentacion
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.example.adoptame.database.entidades.ArticlesEntity
 import com.example.ecuchange.R
+import com.example.ecuchange.data.database.entidades.UsuarioEntity
 import com.example.ecuchange.databinding.ActivityItemBinding
 import com.example.ecuchange.databinding.ActivityLoginBinding
 import com.example.ecuchange.entities.Products
 import com.example.ecuchange.logica.ProductsLogica
+import com.example.ecuchange.logica.UsuarioLogica
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -22,6 +26,7 @@ class ItemActivity : AppCompatActivity() {
         private lateinit var binding: ActivityItemBinding
 
         private var fav: Boolean = false
+        private lateinit var oneUser: UsuarioEntity
         private lateinit var articuloItem: ArticlesEntity
 
         override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +39,15 @@ class ItemActivity : AppCompatActivity() {
 
                articuloItem = Json.decodeFromString<ArticlesEntity>(it.getString("producto").toString())
                 println("ARTICULO ESCOGIDO: "+articuloItem)
+            }
+
+            var id = articuloItem.idUsuario
+            println(id)
+            CoroutineScope(Dispatchers.Main).launch {
+                oneUser = UsuarioLogica().getOneUser(id.toString())
+                binding.txtUsuario.text = oneUser.user
+                binding.txtTelefono.text = "Telefono: ${oneUser.telefono}"
+
             }
 
             if (articuloItem != null) {

@@ -47,7 +47,7 @@ class LikeFragment : Fragment() {
                 par=false
                 val entrees: MutableList<ArticlesEntity> = mutableListOf()
                 entrees.addAll(productos)
-                entrees.add(ArticlesEntity("","","","https://img.clasf.co/2020/06/14/Chevrolet-optra-2007-1-4-20200614132958.5596560015.jpg",0))
+                entrees.add(ArticlesEntity("","","","https://img.clasf.co/2020/06/14/Chevrolet-optra-2007-1-4-20200614132958.5596560015.jpg",0, ""))
                 productos=entrees
                 println(productos[3])
             }else{

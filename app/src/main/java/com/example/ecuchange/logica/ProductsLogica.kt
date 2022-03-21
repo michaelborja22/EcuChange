@@ -19,6 +19,10 @@ class ProductsLogica : ViewModel() {
         return ProductoUserCase().getAllProducts(category)
     }
 
+    suspend fun getProductsListbyUser(idUser: String):List<ArticlesEntity>{
+        return ProductoUserCase().getAllProductsbyUser(idUser)
+    }
+
     suspend fun getCategoriesList():List<CategoryEntity> {
         return ProductoUserCase().getAllCategories()
     }

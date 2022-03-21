@@ -45,7 +45,6 @@ class InformationUser : AppCompatActivity() {
             CoroutineScope(Dispatchers.Main).launch {
                 // access = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
                 oneUser = UsuarioLogica().getOneUser(id.toString())
-                println(oneUser)
                 binding.txtUsuario.setText(oneUser.user)
                 binding.txtApellido.setText(oneUser.apellido)
                 binding.txtNombre.setText(oneUser.nombre)

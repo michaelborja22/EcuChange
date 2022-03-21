@@ -96,7 +96,7 @@ private lateinit var binding: FragmentListarBinding
                 par=false
                 val entrees: MutableList<ArticlesEntity> = mutableListOf()
                 entrees.addAll(items)
-                entrees.add(ArticlesEntity("","","","https://img.clasf.co/2020/06/14/Chevrolet-optra-2007-1-4-20200614132958.5596560015.jpg",0))
+                entrees.add(ArticlesEntity("","","","https://img.clasf.co/2020/06/14/Chevrolet-optra-2007-1-4-20200614132958.5596560015.jpg",0, ""))
                 items=entrees
                 println(items[3])
             }else{

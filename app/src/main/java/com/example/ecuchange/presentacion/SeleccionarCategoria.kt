@@ -56,12 +56,6 @@ class SeleccionarCategoria : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.botonVer.setOnClickListener() {
-            val dbSh = this.getSharedPreferences("dataUser", Context.MODE_PRIVATE)
-            var id = dbSh.getString("category_product", "")
-            var name = dbSh.getString("name_category_product", "")
-            println(id)
-        }
 
 
 

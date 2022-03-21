@@ -17,6 +17,9 @@ interface ArticulosService {
     suspend fun getAllArticulosbyCategoria(@Url url:String): Response<ArticulosEntity>
 
     @GET
+    suspend fun getAllArticulosbyUser(@Url url:String): Response<ArticulosEntity>
+
+    @GET
     suspend fun getOneArticulo(@Url url:String): Response<Article>
 
     @GET

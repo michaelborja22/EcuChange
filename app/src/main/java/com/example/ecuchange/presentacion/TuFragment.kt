@@ -59,6 +59,24 @@ class TuFragment : Fragment() {
             startActivity(intent)
         }
 
+        binding.botonVerMisProductos.setOnClickListener() {
+            var intent = Intent(activity, MisProductos::class.java)
+            println()
+            startActivity(intent)
+        }
+
+        binding.botonCambiarPassword.setOnClickListener() {
+            var intent = Intent(activity, CambioPassword::class.java)
+            println()
+            startActivity(intent)
+        }
+
+        binding.botonCerrarSesion.setOnClickListener() {
+            var intent = Intent(activity, LoginActivity::class.java)
+            println()
+            startActivity(intent)
+        }
+
 
 
         return binding.root

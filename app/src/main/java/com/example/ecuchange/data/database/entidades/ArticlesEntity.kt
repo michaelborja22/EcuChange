@@ -14,4 +14,5 @@ data class ArticlesEntity(
     val descripcion: String?,
     val imagen: String?,
     val precio: Int?,
+    val idUsuario: String?,
 )

@@ -66,6 +66,26 @@ class ProductoUserCase {
         return resp
     }
 
+    suspend fun getAllProductsbyUser(idUser: String): List<ArticlesEntity> {
+        val url: String
+        if (idUser.isNotEmpty()) {
+            url = "filtroUsuario/$idUser"
+        } else {
+            url = "articulos"
+        }
+        var resp: List<ArticlesEntity> = ArrayList<ArticlesEntity>()
+
+        val service = RetrofitAPI.getArticulosApi().create(ArticulosService::class.java)
+        val call = service.getAllArticulosbyUser(url)
+
+        resp = if (call.isSuccessful) {
+            return call.body()!!.articles.map {
+                it.toArticlesEntity()
+            }
+        } else (ArrayList<ArticlesEntity>())
+        return resp
+    }
+
 
     suspend fun getOneProduct(id: String): ArticlesEntity {
         val service = RetrofitAPI.getOneArticulosApi().create(ArticulosService::class.java)
@@ -76,7 +96,7 @@ class ProductoUserCase {
             articulo1 = body!!.toArticlesEntity()
             return articulo1
         } else
-        return ArticlesEntity("","","","",50)
+        return ArticlesEntity("","","","",50, "")
 
     }
 

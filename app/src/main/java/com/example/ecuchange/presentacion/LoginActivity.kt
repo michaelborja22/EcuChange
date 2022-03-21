@@ -35,7 +35,8 @@ class LoginActivity : AppCompatActivity() {
                 // access = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
                 usuarioAcces = UsuarioLogica().LoginUser(binding.txtEmail.text.toString(),binding.txtPassword.text.toString())
                 if(usuarioAcces.user === "admin"){
-                    binding.layoutEmail.error = getString(R.string.error)
+                    binding.layoutEmail.error = "Ingrese un usuario valido"
+                    binding.layoutPassword.error = "Contraseña incorrecta"
                 }else{
                     println(usuarioAcces.id)
                     editor.putString("id_User", usuarioAcces.id)

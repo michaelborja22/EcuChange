@@ -26,6 +26,10 @@ public class UsuarioModal {
         this.direccion = direccion;
     }
 
+    public UsuarioModal(String password) {
+        this.password = password;
+    }
+
     public String getNombre() {
         return nombre;
     }

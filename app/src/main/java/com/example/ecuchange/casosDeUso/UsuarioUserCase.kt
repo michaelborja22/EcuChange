@@ -67,7 +67,7 @@ class UsuarioUserCase {
     }
 
     suspend fun getOneUser (id: String) : UsuarioEntity {
-        var us: UsuarioEntity = UsuarioEntity("0001","admin", "admin", "admin")
+        var us: UsuarioEntity = UsuarioEntity("0001","admin", "admin", "admin", "0999999999")
         val service = RetrofitAPI.getUsuariosApi().create(UsuarioService::class.java)
         val call = service.getOneUser("usuario/$id")
 
