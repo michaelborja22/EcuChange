@@ -49,11 +49,7 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if(Patterns.EMAIL_ADDRESS.matcher(binding.txtEmail.text).matches()  ){
-                Toast.makeText(this,"Correo electrónico invalido",
-                    Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+
             CoroutineScope(Dispatchers.IO).launch {
                 postData(binding.txtNombre.text.toString(), binding.txtApellido.text.toString(), binding.txtEmail.text.toString(), binding.txtUsuario.text.toString(), binding.txtPasswordR.text.toString(), binding.txtDireccion.text.toString(), binding.telefono.text.toString())
             }
