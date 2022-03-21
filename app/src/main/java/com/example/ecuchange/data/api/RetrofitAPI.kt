@@ -29,4 +29,10 @@ object RetrofitAPI {
             .build()
     }
 
+    fun deleteArticuloApi(): Retrofit {
+        return Retrofit.Builder().baseUrl("https://ecu-change.herokuapp.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
 }

@@ -1,11 +1,17 @@
 package com.example.ecuchange.presentacion
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.adoptame.database.entidades.ArticlesEntity
 import com.example.ecuchange.R
+import com.example.ecuchange.data.api.RetrofitAPI
+import com.example.ecuchange.data.api.service.ArticulosService
+import com.example.ecuchange.data.api.service.UsuarioService
 import com.example.ecuchange.data.database.entidades.UsuarioEntity
 import com.example.ecuchange.databinding.ActivityItemBinding
 import com.example.ecuchange.databinding.ActivityLoginBinding
@@ -28,6 +34,7 @@ class ItemActivity : AppCompatActivity() {
         private var fav: Boolean = false
         private lateinit var oneUser: UsuarioEntity
         private lateinit var articuloItem: ArticlesEntity
+        private var isMyArticles: Boolean = false
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -36,13 +43,15 @@ class ItemActivity : AppCompatActivity() {
 
             var n: ArticlesEntity? = null
             intent.extras?.let{
-
                articuloItem = Json.decodeFromString<ArticlesEntity>(it.getString("producto").toString())
+
+                isMyArticles = it.getBoolean("isMyArticles")
+
+                println(isMyArticles)
                 println("ARTICULO ESCOGIDO: "+articuloItem)
             }
 
             var id = articuloItem.idUsuario
-            println(id)
             CoroutineScope(Dispatchers.Main).launch {
                 oneUser = UsuarioLogica().getOneUser(id.toString())
                 Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
@@ -55,11 +64,32 @@ class ItemActivity : AppCompatActivity() {
                 loadNews(articuloItem!!)
             }
 
-
-            binding.botonLikeItem.setOnClickListener(){
-                saveFavNews(articuloItem)
+            if (isMyArticles) {
+                binding.linearLayout.visibility = View.GONE
+                binding.botonLikeItem.visibility = View.GONE
+                binding.botonComprarItem.visibility = View.GONE
+                binding.botonIntercambiarItem.visibility = View.GONE
+                binding.botonEliminar.visibility = View.VISIBLE
+            } else {
+                binding.botonLikeItem.setOnClickListener() {
+                    saveFavNews(articuloItem)
+                }
             }
 
+            binding.botonEliminar.setOnClickListener() {
+                println("Eliminando Producto")
+                CoroutineScope(Dispatchers.IO).launch {
+                    val service =
+                        RetrofitAPI.deleteArticuloApi().create(ArticulosService::class.java)
+                    val response = service.eliminarProducto(articuloItem.id)
+                    if (response.isSuccessful) {
+                        var intent = Intent(applicationContext, MisProductos::class.java )
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(applicationContext,"Retrofit Error ${response.code().toString()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
             }
 
     private fun loadNews(articlesEntity: ArticlesEntity) {

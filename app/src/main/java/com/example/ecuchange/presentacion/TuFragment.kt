@@ -42,7 +42,7 @@ class TuFragment : Fragment() {
         }else{
             Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
             binding.txtNombrePerfil.setText(nombreUsuario)
-            binding.botonIrALogin.visibility =View.GONE
+            binding.botonIrALogin.visibility = View.GONE
         }
 
         binding.botonEditarPerfil.setOnClickListener() {

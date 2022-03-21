@@ -76,6 +76,7 @@ class MisProductos : AppCompatActivity() {
         var i = Intent(this, ItemActivity::class.java)
         val jsonString = Json.encodeToString(articlesEntity)
         i.putExtra("producto", jsonString)
+        i.putExtra("isMyArticles", true)
         startActivity(i)
     }
 }
