@@ -9,6 +9,13 @@
     tools:context=".presentacion.PrincipalActivity">
 
 
+    <FrameLayout
+        android:id="@+id/FrameLayoutPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="697dp">
+
+    </FrameLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -20,13 +27,6 @@
         app:itemTextColor="@color/white"
         app:labelVisibilityMode="selected"
         app:menu="@menu/botton_bar_menu" />
-
-    <FrameLayout
-        android:id="@+id/FrameLayoutPrincipal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
 
 
 </LinearLayout>
