@@ -40,9 +40,7 @@ private lateinit var binding: FragmentListarBinding
 
     private var category: String = "6212ef2448b036d3701843e7"
     private lateinit var oneUser: UsuarioEntity
-    val e: MutableList<String> = mutableListOf()
-    private lateinit var v:View
-    private lateinit var  lista: List<ArticlesEntity>
+
     var par:Boolean=true
 
     override fun onCreateView(
@@ -50,16 +48,7 @@ private lateinit var binding: FragmentListarBinding
         savedInstanceState: Bundle?
     ): View? {
         binding= FragmentListarBinding.inflate(inflater,container,false)
-        v= inflater.inflate(R.layout.fragment_listar, container, false)
 
-
-
-        val user = arrayOf("Abhay","Joseph","Maria","Avni","Apoorva","Chris","David","Kaira","Dwayne","Christopher",
-            "Jim","Russel","Donald","Brack","Vladimir")
-
-        val userAdapter : ArrayAdapter<String> = ArrayAdapter(
-            v.context,android.R.layout.simple_list_item_1,e
-        )
 
         return binding.root
 
@@ -79,9 +68,6 @@ private lateinit var binding: FragmentListarBinding
 
                     clear()
                     loadArticulos(category)
-                    for(i in 1..lista.size){
-                        println("Contando $i")
-                    }
                 }
 
                 override fun onTabReselected(tab: TabLayout.Tab?) {}
@@ -100,10 +86,8 @@ private lateinit var binding: FragmentListarBinding
             }
 
             if(items.size%2==1){
-                lista=items
                 par=false
                 val entrees: MutableList<ArticlesEntity> = mutableListOf()
-
                 entrees.addAll(items)
                 entrees.add(ArticlesEntity("","ARTICULO","","https://img.clasf.co/2020/06/14/Chevrolet-optra-2007-1-4-20200614132958.5596560015.jpg",0, ""))
                 items=entrees
