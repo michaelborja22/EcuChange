@@ -15,7 +15,7 @@
 
 
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/perfil128" />
@@ -25,8 +25,8 @@
         style="@style/titulos"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="30dp"
         android:text="Nombre del Usuario"
         android:textSize="24dp"
         app:layout_constraintStart_toEndOf="@+id/imagenUsuario"

@@ -45,18 +45,15 @@ class ItemActivity : AppCompatActivity() {
 
                 isMyArticles = it.getBoolean("isMyArticles")
 
-                println(isMyArticles)
-                println("ARTICULO ESCOGIDO: "+articuloItem)
             }
 
             var id = articuloItem.idUsuario
-            println(id)
             CoroutineScope(Dispatchers.Main).launch {
                 oneUser = UsuarioLogica().getOneUser(id.toString())
                 Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
-                binding.txtUsuario.text = oneUser.user
+                binding.txtUsuario.text = oneUser.nombre+ " "+oneUser.apellido
                 binding.txtTelefono.text = "Telefono: ${oneUser.telefono}"
-
+                binding.txtDireccion.text = "Telefono: ${oneUser.direccion}"
             }
 
             if (articuloItem != null) {

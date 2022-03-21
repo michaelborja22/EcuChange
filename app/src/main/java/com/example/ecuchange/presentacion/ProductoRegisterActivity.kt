@@ -168,6 +168,7 @@ class ProductoRegisterActivity : AppCompatActivity() {
                         println("LA SEGUNDAS URL  " + UrlImagenProducto)
                         myRef.setValue(hashMap)
                         Log.d("Mensaje", "Se subió correctamente")
+                        binding.imagenProductoSubido.setPadding(0,0,0,0)
                     }
                 }
             }

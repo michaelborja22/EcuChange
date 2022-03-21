@@ -52,23 +52,29 @@ class MisProductos : AppCompatActivity() {
         {
             var items = ProductsLogica().getProductsListbyUser(idUser)
 
-
             binding.listRecyclerViewMisProductos.layoutManager = LinearLayoutManager(binding.listRecyclerViewMisProductos.context)
 
             //Cuando la lista es impar se debe crear un articulo extra para que se mande al view holder y asi mostrar
             if(items.size%2==1){
+                println("IMPARSITO")
                 par=false
                 val entrees: MutableList<ArticlesEntity> = mutableListOf()
                 entrees.addAll(items)
-                entrees.add(ArticlesEntity("","","","https://img.clasf.co/2020/06/14/Chevrolet-optra-2007-1-4-20200614132958.5596560015.jpg",0, ""))
+                entrees.add(ArticlesEntity("","ARTICULO","","https://img.clasf.co/2020/06/14/Chevrolet-optra-2007-1-4-20200614132958.5596560015.jpg",0, ""))
                 items=entrees
-                println(items[3])
             }else{
+                println("PARSITO")
                 par=true
             }
             binding.listRecyclerViewMisProductos.adapter = ProductsAdapter(items,par){getProductsItem(it)}
             binding.progressBarFav.visibility = View.GONE
         }
+
+        binding.botonAddProducto.setOnClickListener(){
+            var i = Intent(this, SeleccionarCategoria::class.java)
+            startActivity(i)
+        }
+
     }
 
     private fun getProductsItem(articlesEntity: ArticlesEntity) {

@@ -56,6 +56,10 @@ class SeleccionarCategoria : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.botonRegresar.setOnClickListener(){
+            var intent = Intent(this, ProductoRegisterActivity::class.java )
+            startActivity(intent)
+        }
 
 
 

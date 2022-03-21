@@ -153,15 +153,21 @@
                 android:layout_height="wrap_content"
                 android:text="Usuario"
                 android:textStyle="bold"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:textColor="@color/negroOscuro" />
 
             <TextView
                 android:id="@+id/txtTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Telefono" />
+                android:layout_marginTop="6dp"
+                android:text="Telefono: " />
+            <TextView
+                android:id="@+id/txtDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Dirección: " />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

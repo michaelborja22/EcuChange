@@ -25,21 +25,30 @@ class ProductsAdapter(val productsItemsList: List<ArticlesEntity>, var par: Bool
     //Asigna cada uno de los elementos al viewholder
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         val item= productsItemsList[position]
-        //print("Tamaño de lista: "+productsItemsList.size+"\n")
+
        // print("\nTITULO: "+item.titulo+"\n")
        // println("POSICION: "+position+", TAMAÑO LISTA: "+(productsItemsList.size/2))
-        if(((productsItemsList.size/2)+position)<productsItemsList.size) {
-            val item2 = productsItemsList[(productsItemsList.size / 2) + position ]
-            holder.render2(item,item2,onClickItemSelected)
-        }
+
+            if (((productsItemsList.size / 2) + position) < productsItemsList.size) {
+                val item2 = productsItemsList[(productsItemsList.size / 2) + position]
+                holder.render2(item, item2, onClickItemSelected)
+            }
+
 
         if(par==false){
-            if(position+1==productsItemsList.size/2){
-                holder.render1(item,onClickItemSelected)
-            }
+                if(position+1==productsItemsList.size/2){
+                    holder.render1(item,onClickItemSelected)
+                }
         }
 
 
+        if(par==false){
+            if(productsItemsList.size==2){
+                if(position+1==productsItemsList.size/2){
+
+                }
+            }
+        }
 
     }
 

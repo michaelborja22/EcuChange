@@ -61,8 +61,13 @@ class InformationUser : AppCompatActivity() {
                 binding.txtNombre.setText(oneUser.nombre)
                 binding.txtEmail.setText(oneUser.correo)
                 binding.txtDireccion.setText(oneUser.direccion)
-                Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
-
+                if(oneUser.urlImagen==""){
+                }else{
+                    Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
+                }
+                if(oneUser.urlImagen==null){
+                    Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/test01-deca2.appspot.com/o/Products%2Fusuario.jpg?alt=media&token=57cb41e4-ee4c-465e-aa99-30889ffb9916").into(binding.imagenUsuario)
+                }
         }
 
         binding.botonCargarImagen.setOnClickListener() {
@@ -80,6 +85,7 @@ class InformationUser : AppCompatActivity() {
             var intent = Intent(this, PrincipalActivity::class.java )
             startActivity(intent)
         }
+
 
     }
 

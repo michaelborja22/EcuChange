@@ -2,6 +2,7 @@ package com.example.ecuchange.presentacion
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -40,9 +41,15 @@ class TuFragment : Fragment() {
         if(oneUser.nombre==null) {
             binding.txtNombrePerfil.setText("Entra o \nRegístrate")
         }else{
-            Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
             binding.txtNombrePerfil.setText(nombreUsuario)
-            binding.botonIrALogin.visibility = View.GONE
+            if(oneUser.urlImagen==""){
+            }else{
+                Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
+                binding.botonIrALogin.visibility = View.GONE
+            }
+            if(oneUser.urlImagen==null){
+                Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/test01-deca2.appspot.com/o/Products%2Fusuario.jpg?alt=media&token=57cb41e4-ee4c-465e-aa99-30889ffb9916").into(binding.imagenUsuario)
+            }
         }
 
         binding.botonEditarPerfil.setOnClickListener() {
@@ -80,6 +87,8 @@ class TuFragment : Fragment() {
             println()
             startActivity(intent)
         }
+
+        println("IMAGEN "+oneUser.urlImagen)
 
 
 

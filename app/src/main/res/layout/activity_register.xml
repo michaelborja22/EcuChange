@@ -118,7 +118,7 @@
             android:background="@drawable/bordes_register"
             android:ems="10"
             android:hint="Telefono"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             tools:ignore="TouchTargetSizeCheck" />
 
 

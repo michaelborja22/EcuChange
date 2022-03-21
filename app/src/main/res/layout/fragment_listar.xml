@@ -15,7 +15,8 @@
         android:layout_height="49dp"
         android:backgroundTint="@color/celeste"
         app:iconifiedByDefault="false"
-
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -94,7 +95,12 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Consola y Videojuegos" />
+            android:text="Consola y Videojuegos"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ropa Y Accesorios"/>
 
 
     </com.google.android.material.tabs.TabLayout>
