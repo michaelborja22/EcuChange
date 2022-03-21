@@ -13,6 +13,7 @@ import com.example.ecuchange.databinding.FragmentListarBinding
 import com.example.ecuchange.databinding.FragmentTuBinding
 import com.example.ecuchange.logica.UsuarioLogica
 import com.example.ecuchange.uploadImagen
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -34,10 +35,12 @@ class TuFragment : Fragment() {
         println("Nombre del usuario"+usuario)
 
         oneUser = Json.decodeFromString<UsuarioEntity>(this.arguments?.getString("usuario").toString())
+        println(oneUser)
 
         if(oneUser.nombre==null) {
             binding.txtNombrePerfil.setText("Entra o \nRegístrate")
         }else{
+            Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
             binding.txtNombrePerfil.setText(nombreUsuario)
             binding.botonIrALogin.visibility =View.GONE
         }

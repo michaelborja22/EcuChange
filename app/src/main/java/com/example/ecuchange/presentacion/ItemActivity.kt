@@ -45,6 +45,7 @@ class ItemActivity : AppCompatActivity() {
             println(id)
             CoroutineScope(Dispatchers.Main).launch {
                 oneUser = UsuarioLogica().getOneUser(id.toString())
+                Picasso.get().load(oneUser.urlImagen).into(binding.imagenUsuario)
                 binding.txtUsuario.text = oneUser.user
                 binding.txtTelefono.text = "Telefono: ${oneUser.telefono}"
 
