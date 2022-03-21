@@ -101,7 +101,7 @@ class PrincipalActivity : AppCompatActivity() {
     }
 
 
-    override fun onB    ackPressed() {
+    override fun onBackPressed() {
         super.onBackPressed()
         //Para pasar por la pantalla home al final
         if(lstFragments.isNotEmpty()){
