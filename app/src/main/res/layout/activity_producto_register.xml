@@ -66,7 +66,7 @@ android:layout_marginLeft="20dp"
                     android:foregroundGravity="center"
                     android:gravity="center"
                     android:padding="30dp"
-                    android:backgroundTint="@color/celesteApagado"
+                    android:backgroundTint="@color/black"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -150,7 +150,7 @@ android:layout_marginLeft="20dp"
                 android:background="@drawable/bordes"
                 android:ems="10"
                 android:hint="$"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 tools:ignore="TouchTargetSizeCheck" />
 
 

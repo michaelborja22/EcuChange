@@ -39,6 +39,8 @@ class ProductsAdapter(val productsItemsList: List<ArticlesEntity>, var par: Bool
             }
         }
 
+
+
     }
 
     override fun getItemCount(): Int = productsItemsList.size/2

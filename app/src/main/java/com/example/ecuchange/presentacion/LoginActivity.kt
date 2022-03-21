@@ -91,7 +91,6 @@ Antes
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(vista.windowToken,0)
 
-
     }
 
 

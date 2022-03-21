@@ -67,7 +67,6 @@ class PrincipalActivity : AppCompatActivity() {
                     true
                 }
                 R.id.botonMas -> {
-                    println("ANT: "+ant)
                     if(item.itemId!=ant){
                         createFragment(ListarFragment())
                         lstFragments.add(R.id.botonInicio)
